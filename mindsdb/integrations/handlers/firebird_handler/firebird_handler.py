@@ -97,9 +97,9 @@ class FirebirdHandler(DatabaseHandler):
             log.logger.error(f'Error connecting to Firebird {self.connection_data["database"]}, {e}!')
             response.error_message = str(e)
         finally:
-            if response.success is True and need_to_close:
+            if response.success and need_to_close:
                 self.disconnect()
-            if response.success is False and self.is_connected is True:
+            if not response.success and self.is_connected is True:
                 self.is_connected = False
 
         return response
@@ -120,8 +120,7 @@ class FirebirdHandler(DatabaseHandler):
 
         try:
             cursor.execute(query)
-            result = cursor.fetchall()
-            if result:
+            if result := cursor.fetchall():
                 response = Response(
                     RESPONSE_TYPE.TABLE,
                     data_frame=pd.DataFrame(
@@ -140,7 +139,7 @@ class FirebirdHandler(DatabaseHandler):
             )
 
         cursor.close()
-        if need_to_close is True:
+        if need_to_close:
             self.disconnect()
 
         return response

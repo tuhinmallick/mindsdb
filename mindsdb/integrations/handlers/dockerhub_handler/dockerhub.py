@@ -12,7 +12,7 @@ class DockerHubClient:
             raise ValueError('Invalid HTTP request method')
         headers = {'Content-type': 'application/json'}
         if self.auth_token:
-            headers['Authorization'] = 'JWT ' + self.auth_token
+            headers['Authorization'] = f'JWT {self.auth_token}'
         request_method = getattr(requests, method.lower())
         if data and len(data) > 0:
             data = json.dumps(data)
@@ -20,16 +20,18 @@ class DockerHubClient:
         else:
             resp = request_method(url, headers=headers)
         content = {}
-        if resp.status_code == 200:
-            content = {'content': json.loads(resp.content.decode()), 'code': 200}
-        else:
-            content = {'content': {}, 'code': resp.status_code, 'error': resp.text}
-        return content
+        return (
+            {'content': json.loads(resp.content.decode()), 'code': 200}
+            if resp.status_code == 200
+            else {'content': {}, 'code': resp.status_code, 'error': resp.text}
+        )
 
     def login(self, username=None, password=None):
         data = {'username': username, 'password': password}
         self.auth_token = None
-        resp = self.make_request(self.docker_hub_base_endpoint + 'users/login/', 'POST', data)
+        resp = self.make_request(
+            f'{self.docker_hub_base_endpoint}users/login/', 'POST', data
+        )
         if resp['code'] == 200:
             self.auth_token = resp['content']['token']
         return resp

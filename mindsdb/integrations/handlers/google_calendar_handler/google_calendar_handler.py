@@ -83,14 +83,11 @@ class GoogleCalendarHandler(APIHandler):
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
 
-                save_creds_to_file(creds, creds_file)
-                self.handler_storage.folder_sync('config')
-
             else:
                 creds = google_auth_flow(secret_file, self.scopes, self.connection_data.get('code'))
 
-                save_creds_to_file(creds, creds_file)
-                self.handler_storage.folder_sync('config')
+            save_creds_to_file(creds, creds_file)
+            self.handler_storage.folder_sync('config')
 
         self.service = build('calendar', 'v3', credentials=creds)
         return self.service

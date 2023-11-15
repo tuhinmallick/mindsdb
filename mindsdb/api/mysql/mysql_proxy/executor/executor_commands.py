@@ -146,7 +146,7 @@ def _get_show_where(
     if statement.where is not None:
         where.append(statement.where)
 
-    if len(where) > 0:
+    if where:
         return reduce(
             lambda prev, next: BinaryOperation("and", args=[prev, next]), where
         )

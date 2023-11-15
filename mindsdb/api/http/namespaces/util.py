@@ -34,8 +34,7 @@ def get_active_tasks():
         if not processes_dir.is_dir():
             continue
         clean_unlinked_process_marks()
-        process_marks = [x.name for x in processes_dir.iterdir()]
-        if len(process_marks) > 0:
+        if process_marks := [x.name for x in processes_dir.iterdir()]:
             response[process_type] = True
 
     return response
@@ -76,11 +75,14 @@ class ReadinessProbe(Resource):
         '''Checks server is ready for work'''
 
         tasks = get_active_tasks()
-        for key in tasks:
-            if tasks[key] is True:
-                return http_error(503, 'not ready', 'not ready')
-
-        return '', 200
+        return next(
+            (
+                http_error(503, 'not ready', 'not ready')
+                for key in tasks
+                if tasks[key] is True
+            ),
+            ('', 200),
+        )
 
 
 @ns_conf.route('/ping_native')
@@ -105,7 +107,7 @@ class Telemetry(Resource):
     def post(self):
         data = request.json
         action = data['action']
-        if str(action).lower() in ["true", "enable", "on"]:
+        if str(action).lower() in {"true", "enable", "on"}:
             enable_telemetry(ca.config_obj['storage_dir'])
         else:
             disable_telemetry(ca.config_obj['storage_dir'])

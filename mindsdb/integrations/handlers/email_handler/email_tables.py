@@ -45,10 +45,10 @@ class EmailsTable(APITable):
         for op, arg1, arg2 in where_conditions:
             if arg1 == 'created_at':
                 date = self.parse_date(arg2)
-                if op == '>':
-                    search_params['since_date'] = date
-                elif op == '<':
+                if op == '<':
                     search_params['until_date'] = date
+                elif op == '>':
+                    search_params['since_date'] = date
                 else:
                     raise NotImplementedError("Only > and < operators are supported for created_at column.")
                 continue
@@ -56,11 +56,10 @@ class EmailsTable(APITable):
             elif arg1 in ['mailbox', 'subject', 'to', 'from', 'since_emailid']:
                 if op != '=':
                     raise NotImplementedError("Only = operator is supported for mailbox, subject, to and from columns.")
+                if arg1 == 'from':
+                    search_params['from_'] = arg2
                 else:
-                    if arg1 == 'from':
-                        search_params['from_'] = arg2
-                    else:
-                        search_params[arg1] = arg2
+                    search_params[arg1] = arg2
 
             else:
                 raise NotImplementedError(f"Unsupported column: {arg1}.")

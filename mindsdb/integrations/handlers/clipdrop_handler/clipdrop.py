@@ -5,7 +5,7 @@ import uuid
 class ClipdropClient:
     def __init__(self, api_key, local_dir):
         self.api_key = api_key
-        self.dir_to_save = local_dir if local_dir.endswith("/") else local_dir + "/"
+        self.dir_to_save = local_dir if local_dir.endswith("/") else f"{local_dir}/"
         self.base_endpoint = "https://clipdrop-api.co/"
 
     def write_to_file(self, img):
@@ -18,8 +18,7 @@ class ClipdropClient:
         headers = {"x-api-key": self.api_key}
         resp = requests.post(url, headers=headers, files=files, data=data)
         if resp.status_code == 200:
-            saved_path = self.write_to_file(resp.content)
-            return saved_path
+            return self.write_to_file(resp.content)
         return resp.text
 
     def image_extension_check(self, url):

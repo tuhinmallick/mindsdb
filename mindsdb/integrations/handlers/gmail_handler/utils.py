@@ -23,20 +23,19 @@ class AuthException(Exception):
 
 
 def google_auth_flow(secret_file, scopes, code=None):
-    # initialise flow
-    flow = Flow.from_client_secrets_file(secret_file, scopes)
+  # initialise flow
+  flow = Flow.from_client_secrets_file(secret_file, scopes)
 
-    # get host url from flask
-    from flask import request
-    flow.redirect_uri = request.headers['ORIGIN'] + '/verify-auth'
+  # get host url from flask
+  from flask import request
+  flow.redirect_uri = request.headers['ORIGIN'] + '/verify-auth'
 
-    if code:
-        flow.fetch_token(code=code)
-        creds = flow.credentials
-        return creds
-    else:
-        auth_url = flow.authorization_url()[0]
-        raise AuthException(f'Authorisation required. Please follow the url: {auth_url}', auth_url=auth_url)
+  if code:
+    flow.fetch_token(code=code)
+    return flow.credentials
+  else:
+    auth_url = flow.authorization_url()[0]
+    raise AuthException(f'Authorisation required. Please follow the url: {auth_url}', auth_url=auth_url)
 
 
 def save_creds_to_file(creds, file_path):

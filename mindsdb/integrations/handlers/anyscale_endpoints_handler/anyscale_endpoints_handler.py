@@ -92,7 +92,9 @@ class AnyscaleEndpointsHandler(OpenAIHandler):
     def _check_ft_cols(df, cols):
         for col in ['role', 'content']:
             if col not in set(df.columns):
-                raise Exception(f"To fine-tune this model, format your select data query to have a `role` column and a `content` column.")  # noqa
+                raise Exception(
+                    "To fine-tune this model, format your select data query to have a `role` column and a `content` column."
+                )
 
     def _prepare_ft_jsonl(self, df, temp_storage_path, temp_filename, _, test_size=0.2):
         """
@@ -135,12 +137,11 @@ class AnyscaleEndpointsHandler(OpenAIHandler):
 
     @staticmethod
     def _add_extra_ft_params(ft_params, using_args):
-        hyperparameters = {}
-        # we populate separately because keys with `None` break the API
-        for key in ('n_epochs', 'context_length'):
-            if using_args.get(key, None):
-                hyperparameters[key] = using_args[key]
-        if hyperparameters:
+        if hyperparameters := {
+            key: using_args[key]
+            for key in ('n_epochs', 'context_length')
+            if using_args.get(key, None)
+        }:
             return {**ft_params, **{'hyperparameters': hyperparameters}}
         else:
             return ft_params
@@ -164,7 +165,10 @@ class AnyscaleEndpointsHandler(OpenAIHandler):
                     raise Exception(f"{prefix}Each line in the provided data should have a 'messages' key with a list of messages")  # noqa
 
                 messages = batch["messages"]
-                if not any(message.get("role", None) == "assistant" for message in messages):
+                if all(
+                    message.get("role", None) != "assistant"
+                    for message in messages
+                ):
                     raise Exception(f"{prefix}Each message list should have at least one message with role 'assistant'")  # noqa
 
                 for message_num, message in enumerate(messages):

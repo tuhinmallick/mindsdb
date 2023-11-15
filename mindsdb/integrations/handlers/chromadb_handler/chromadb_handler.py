@@ -144,9 +144,9 @@ class ChromaDBHandler(VectorStoreHandler):
             log.logger.error(f"Error connecting to ChromaDB , {e}!")
             response_code.error_message = str(e)
         finally:
-            if response_code.success is True and need_to_close:
+            if response_code.success and need_to_close:
                 self.disconnect()
-            if response_code.success is False and self.is_connected is True:
+            if not response_code.success and self.is_connected is True:
                 self.is_connected = False
 
         return response_code
@@ -200,7 +200,7 @@ class ChromaDBHandler(VectorStoreHandler):
             for condition in conditions
             if condition.column.startswith(TableField.METADATA.value)
         ]
-        if len(metadata_conditions) == 0:
+        if not metadata_conditions:
             return None
 
         # we translate each metadata condition into a dict
@@ -215,13 +215,11 @@ class ChromaDBHandler(VectorStoreHandler):
                 }
             )
 
-        # we combine all metadata conditions into a single dict
-        metadata_condition = (
+        return (
             {"$and": chroma_db_conditions}
             if len(chroma_db_conditions) > 1
             else chroma_db_conditions[0]
         )
-        return metadata_condition
 
     def select(
         self,
@@ -243,10 +241,7 @@ class ChromaDBHandler(VectorStoreHandler):
                 if condition.column == TableField.SEARCH_VECTOR.value
             ]
         )
-        if len(vector_filter) > 0:
-            vector_filter = vector_filter[0]
-        else:
-            vector_filter = None
+        vector_filter = vector_filter[0] if vector_filter else None
         id_filters = None
         if conditions is not None:
             id_filters = [

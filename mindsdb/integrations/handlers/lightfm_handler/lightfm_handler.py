@@ -189,10 +189,8 @@ class LightFMHandler(BaseMLEngine):
 
         model.fit(train, epochs=model_parameters.epochs)
 
-        evaluation_metrics = dict(
+        return dict(
             auc=auc_score(model, test, train).mean(),
             precision=precision_at_k(model, test, train).mean(),
             recall=recall_at_k(model, test, train).mean(),
         )
-
-        return evaluation_metrics

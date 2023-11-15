@@ -24,10 +24,9 @@ class ChromaHandlerConfig(BaseModel):
         expected_params = cls.__fields__.keys()
         for key in values.keys():
             if key not in expected_params:
-                close_matches = difflib.get_close_matches(
+                if close_matches := difflib.get_close_matches(
                     key, expected_params, cutoff=0.4
-                )
-                if close_matches:
+                ):
                     raise ValueError(
                         f"Unexpected parameter '{key}'. Did you mean '{close_matches[0]}'?"
                     )
@@ -50,7 +49,7 @@ class ChromaHandlerConfig(BaseModel):
                 f"Additionally, if host and port are provided, persist_directory should not be provided."
             )
 
-        if persist_directory and (host or port):
+        if persist_directory and port:
             raise ValueError(
                 f"For {vector_store} handler - if persistence_folder is provided, "
                 f"host, port should not be provided."

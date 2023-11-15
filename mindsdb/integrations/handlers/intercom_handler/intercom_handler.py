@@ -61,12 +61,11 @@ class IntercomHandler(APIHandler):
                     url=self._baseUrl,
                     headers=self._headers
                 )
-                if response.status_code == 200:
-                    self.connection = response
-                    self.is_connected = True
-                    return StatusResponse(True)
-                else:
+                if response.status_code != 200:
                     raise Exception(f"Error connecting to Intercom API: {response.status_code} - {response.text}")
+                self.connection = response
+                self.is_connected = True
+                return StatusResponse(True)
             except requests.RequestException as e:
                 raise Exception(f"Request to Intercom API failed: {str(e)}")
 
@@ -94,11 +93,10 @@ class IntercomHandler(APIHandler):
 
         response = requests.request(method.upper(), url, headers=self._headers, params=params, json=json_data)
 
-        if response.status_code == 200:
-            data = response.json()
-            return pd.DataFrame([data])
-        else:
+        if response.status_code != 200:
             raise requests.Response.raise_for_status(response)
+        data = response.json()
+        return pd.DataFrame([data])
 
 
 connection_args = OrderedDict(

@@ -19,11 +19,7 @@ class StoriesTable(APITable):
         """
         hn_handler = self.handler
 
-        # Extract the limit value from the SQL query, if it exists
-        limit = None
-        if query.limit is not None:
-            limit = query.limit.value
-
+        limit = query.limit.value if query.limit is not None else None
         df = hn_handler.get_df_from_class(self, limit)
 
         # Apply any WHERE clauses in the SQL query to the DataFrame
@@ -88,11 +84,7 @@ class CommentsTable(APITable):
         """
         hn_handler = self.handler
 
-        # Get the limit value from the SQL query, if it exists
-        limit = None
-        if query.limit is not None:
-            limit = query.limit.value
-
+        limit = query.limit.value if query.limit is not None else None
         # Get the item ID from the SQL query
         item_id = None
         conditions = extract_comparison_conditions(query.where)
@@ -148,5 +140,5 @@ class CommentsTable(APITable):
             elif isinstance(target, ast.Identifier):
                 columns.append(target.value)
 
-        if len(columns) > 0:
+        if columns:
             result = result[columns]

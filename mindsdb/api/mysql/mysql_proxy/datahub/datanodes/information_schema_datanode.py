@@ -369,12 +369,10 @@ class InformationSchemaDataNode(DataNode):
         existing_databases_meta = (
             self.database_controller.get_dict()
         )  # filter_type='project'
-        database_name = None
-        for key in existing_databases_meta:
-            if key.lower() == name_lower:
-                database_name = key
-                break
-
+        database_name = next(
+            (key for key in existing_databases_meta if key.lower() == name_lower),
+            None,
+        )
         if database_name is None:
             return None
 
@@ -408,9 +406,7 @@ class InformationSchemaDataNode(DataNode):
 
     def has_table(self, tableName):
         tn = tableName.upper()
-        if tn in self.information_schema:
-            return True
-        return False
+        return tn in self.information_schema
 
     def get_table_columns(self, tableName):
         tn = tableName.upper()
@@ -454,8 +450,7 @@ class InformationSchemaDataNode(DataNode):
                 ]
             )
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_ml_engines(self, query: ASTNode = None):
         columns = self.information_schema["ML_ENGINES"]
@@ -465,12 +460,11 @@ class InformationSchemaDataNode(DataNode):
             key: val for key, val in integrations.items() if val["type"] == "ml"
         }
 
-        data = []
-        for _key, val in ml_integrations.items():
-            data.append([val["name"], val.get("engine"), val.get("connection_data")])
-
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        data = [
+            [val["name"], val.get("engine"), val.get("connection_data")]
+            for val in ml_integrations.values()
+        ]
+        return pd.DataFrame(data, columns=columns)
 
     def _get_tables(self, query: ASTNode = None):
         columns = self.information_schema["TABLES"]
@@ -546,8 +540,7 @@ class InformationSchemaDataNode(DataNode):
                 row.TABLE_SCHEMA = project_name
                 data.append(row.to_list())
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_jobs(self, query: ASTNode = None):
         jobs_controller = JobsController()
@@ -726,8 +719,7 @@ class InformationSchemaDataNode(DataNode):
             for x in project
         ]
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_models(self, query: ASTNode = None):
         columns = self.information_schema["MODELS"]
@@ -736,10 +728,10 @@ class InformationSchemaDataNode(DataNode):
             project = self.database_controller.get_project(name=project_name)
             project_models = project.get_models()
             for row in project_models:
-                table_name = row["name"]
                 table_meta = row["metadata"]
                 if table_meta["active"] is not True:
                     continue
+                table_name = row["name"]
                 data.append(
                     [
                         table_name,
@@ -762,12 +754,11 @@ class InformationSchemaDataNode(DataNode):
                         table_meta["training_time"],
                     ]
                 )
-            # TODO optimise here
-            # if target_table is not None and target_table != project_name:
-            #     continue
+                # TODO optimise here
+                # if target_table is not None and target_table != project_name:
+                #     continue
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_models_versions(self, query: ASTNode = None):
         columns = self.information_schema["MODELS_VERSIONS"]
@@ -799,8 +790,7 @@ class InformationSchemaDataNode(DataNode):
                     ]
                 )
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_columns(self, query: ASTNode = None):
         columns = self.information_schema["COLUMNS"]
@@ -936,8 +926,7 @@ class InformationSchemaDataNode(DataNode):
                 result_row[4] = i
                 result.append(result_row)
 
-        df = pd.DataFrame(result, columns=columns)
-        return df
+        return pd.DataFrame(result, columns=columns)
 
     def _get_schemata(self, query: ASTNode = None):
         columns = self.information_schema["SCHEMATA"]
@@ -948,8 +937,7 @@ class InformationSchemaDataNode(DataNode):
             for x in databases_meta
         ]
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_engines(self, query: ASTNode = None):
         columns = self.information_schema["ENGINES"]
@@ -964,8 +952,7 @@ class InformationSchemaDataNode(DataNode):
             ]
         ]
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_charsets(self, query: ASTNode = None):
         columns = self.information_schema["CHARACTER_SETS"]
@@ -975,8 +962,7 @@ class InformationSchemaDataNode(DataNode):
             ["utf8mb4", "UTF-8 Unicode", "utf8mb4_general_ci", 4],
         ]
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_collations(self, query: ASTNode = None):
         columns = self.information_schema["COLLATIONS"]
@@ -985,15 +971,13 @@ class InformationSchemaDataNode(DataNode):
             ["latin1_swedish_ci", "latin1", 8, "Yes", "Yes", 1, "PAD SPACE"],
         ]
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def _get_empty_table(self, table_name, query: ASTNode = None):
         columns = self.information_schema[table_name]
         data = []
 
-        df = pd.DataFrame(data, columns=columns)
-        return df
+        return pd.DataFrame(data, columns=columns)
 
     def query(self, query: ASTNode, session=None):
         query_tables = get_all_tables(query)

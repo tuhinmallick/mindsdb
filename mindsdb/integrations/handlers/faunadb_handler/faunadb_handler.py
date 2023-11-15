@@ -119,9 +119,9 @@ class FaunaDBHandler(DatabaseHandler):
             log.logger.error(f"Error connecting to FaunaDB , {e}!")
             response_code.error_message = str(e)
         finally:
-            if response_code.success is True and need_to_close:
+            if response_code.success and need_to_close:
                 self.disconnect()
-            if response_code.success is False and self.is_connected is True:
+            if not response_code.success and self.is_connected is True:
                 self.is_connected = False
 
         return response_code
@@ -182,10 +182,10 @@ class FaunaDBHandler(DatabaseHandler):
         limit: int = None,
     ) -> dict:
         # select * from db_name.collection_name
-        if len(columns) > 0 and isinstance(columns[0], Star):
+        if columns and isinstance(columns[0], Star):
             fauna_query = q.map_(
                 q.lambda_("ref", q.get(q.var("ref"))),
-                q.paginate(q.documents(q.collection(str(table_name)))),
+                q.paginate(q.documents(q.collection(table_name))),
             )
         else:
             # select id, name ,etc from db_name.collection_name
@@ -211,7 +211,7 @@ class FaunaDBHandler(DatabaseHandler):
                     )
         else:
             for value in values:
-                data = {f: v for f, v in zip(fields, value)}
+                data = dict(zip(fields, value))
                 self._client.query(
                     q.create(
                         q.collection(table_name),
@@ -249,9 +249,7 @@ class FaunaDBHandler(DatabaseHandler):
         """
         try:
             result = self._client.query(q.paginate(q.collections()))
-            collections = []
-            for collection in result["data"]:
-                collections.append(collection.id())
+            collections = [collection.id() for collection in result["data"]]
             return Response(
                 resp_type=RESPONSE_TYPE.TABLE,
                 data_frame=pd.DataFrame(
