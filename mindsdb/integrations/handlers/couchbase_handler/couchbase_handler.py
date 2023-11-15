@@ -169,9 +169,7 @@ class CouchbaseHandler(DatabaseHandler):
                 unique_collections.add(collection.name)
         collections = list(unique_collections)
         df = pd.DataFrame(collections, columns=["TABLE_NAME"])
-        response = Response(RESPONSE_TYPE.TABLE, df)
-
-        return response
+        return Response(RESPONSE_TYPE.TABLE, df)
 
     def get_columns(self, table_name) -> Response:
         """Returns a list of entity columns
@@ -197,8 +195,7 @@ class CouchbaseHandler(DatabaseHandler):
             # print(row_iter.execute())
             data = []
             for row in row_iter:
-                for k, v in row[table_name].items():
-                    data.append([k, type(v).__name__])
+                data.extend([k, type(v).__name__] for k, v in row[table_name].items())
             df = pd.DataFrame(data, columns=["Field", "Type"])
             response = Response(RESPONSE_TYPE.TABLE, df)
         except KeyspaceNotFoundException as e:

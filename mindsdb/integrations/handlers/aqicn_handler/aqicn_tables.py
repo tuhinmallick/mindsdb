@@ -38,11 +38,11 @@ class AQByUserLocationTable(APITable):
 
         selected_columns, where_conditions, order_by_conditions, result_limit = select_statement_parser.parse_query()
 
-        subset_where_conditions = []
-        for op, arg1, arg2 in where_conditions:
-            if arg1 in self.get_columns():
-                subset_where_conditions.append([op, arg1, arg2])
-
+        subset_where_conditions = [
+            [op, arg1, arg2]
+            for op, arg1, arg2 in where_conditions
+            if arg1 in self.get_columns()
+        ]
         df = pd.DataFrame(columns=self.get_columns())
 
         response = self.handler.aqicn_client.air_quality_user_location()

@@ -11,11 +11,11 @@ class AQIClient:
         resp = requests.get(url, params=self.params)
         res = resp.json()
         content = {}
-        if res["status"] == "ok":
-            content = {'content': resp.json(), 'code': 200}
-        else:
-            content = {'content': resp.json(), 'code': 404}
-        return content
+        return (
+            {'content': resp.json(), 'code': 200}
+            if res["status"] == "ok"
+            else {'content': resp.json(), 'code': 404}
+        )
 
     def air_quality_city(self, city):
         url = f'{self.base_endpoint}/{city}/'

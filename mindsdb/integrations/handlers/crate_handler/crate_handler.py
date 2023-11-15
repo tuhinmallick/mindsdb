@@ -95,9 +95,9 @@ class CrateHandler(DatabaseHandler):
             log.logger.error(f"Error connecting to  CrateDB, {e}!")
             responseCode.error_message = str(e)
         finally:
-            if responseCode.success is True and need_to_close:
+            if responseCode.success and need_to_close:
                 self.disconnect()
-            if responseCode.success is False and self.is_connected is True:
+            if not responseCode.success and self.is_connected is True:
                 self.is_connected = False
 
         return responseCode
@@ -132,7 +132,7 @@ class CrateHandler(DatabaseHandler):
             response = Response(RESPONSE_TYPE.ERROR, error_message=str(e))
         cur.close()
 
-        if need_to_close is True:
+        if need_to_close:
             self.disconnect()
 
         return response
@@ -160,8 +160,7 @@ class CrateHandler(DatabaseHandler):
         """
 
         q = f"SHOW TABLES FROM {self.schemaName};"
-        result = self.native_query(q)
-        return result
+        return self.native_query(q)
 
     def get_columns(self, table_name: str) -> StatusResponse:
         """Returns a list of entity columns
@@ -176,8 +175,7 @@ class CrateHandler(DatabaseHandler):
         """
 
         q = f"SHOW COLUMNS FROM {table_name};"
-        result = self.native_query(q)
-        return result
+        return self.native_query(q)
 
 
 connection_args = OrderedDict(

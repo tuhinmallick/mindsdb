@@ -84,7 +84,7 @@ def _finetune_translate(df, args):
         max_target_length = config.task_specific_params["summarization"]["max_length"]
         prefix = f"translate {source_lang} to {target_lang}: "
         inputs = [prefix + ex for ex in examples["text"]]
-        targets = [ex for ex in examples["translation"]]
+        targets = list(examples["translation"])
         model_inputs = tokenizer(inputs, max_length=config.n_positions, truncation=True)
 
         # Setup the tokenizer for targets

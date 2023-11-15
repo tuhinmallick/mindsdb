@@ -43,8 +43,7 @@ class LanceDBHandler(VectorStoreHandler):
             raise Exception(
                 "persist_directory is required for LanceDB connection!"
             )
-        # uri, api_key and region is required either for LanceDB Cloud
-        elif self._client_config["uri"] and self._client_config["api_key"] and not self._client_config["region"]:
+        elif self._client_config["api_key"] and not self._client_config["region"]:
             raise Exception(
                 "region is required for LanceDB Cloud connection!"
             )
@@ -92,9 +91,9 @@ class LanceDBHandler(VectorStoreHandler):
             log.logger.error(f"Error connecting to LanceDB , {e}!")
             response_code.error_message = str(e)
         finally:
-            if response_code.success is True and need_to_close:
+            if response_code.success and need_to_close:
                 self.disconnect()
-            if response_code.success is False and self.is_connected is True:
+            if not response_code.success and self.is_connected is True:
                 self.is_connected = False
 
         return response_code
@@ -151,7 +150,7 @@ class LanceDBHandler(VectorStoreHandler):
             if condition.column.startswith(TableField.ID.value) or condition.column.startswith(TableField.CONTENT.value)
         ]
 
-        if len(filtered_conditions) == 0:
+        if not filtered_conditions:
             return None
 
         # generate the LanceDB filter string
@@ -194,11 +193,7 @@ class LanceDBHandler(VectorStoreHandler):
             ]
         )
 
-        if len(vector_filter) > 0:
-            vector_filter = vector_filter[0]
-        else:
-            vector_filter = None
-
+        vector_filter = vector_filter[0] if vector_filter else None
         if vector_filter is not None:
             vec = json.loads(vector_filter.value) if isinstance(vector_filter.value, str) else vector_filter.value
             result = collection.search(vec).select(columns).to_pandas()
@@ -214,9 +209,9 @@ class LanceDBHandler(VectorStoreHandler):
         # implementing limit and offset. Not supported natively in lancedb
         if limit and offset:
             sql = f"""select {col_str} from result {where_str} limit {limit} offset {offset}"""
-        elif limit and not offset:
+        elif limit:
             sql = f"""select {col_str} from result {where_str} limit {limit}"""
-        elif offset and not limit:
+        elif offset:
             sql = f"""select {col_str} from result {where_str} offset {offset}"""
         else:
             sql = f"""select {col_str} from result {where_str}"""

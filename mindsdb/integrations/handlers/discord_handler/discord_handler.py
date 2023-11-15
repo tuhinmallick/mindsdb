@@ -54,7 +54,7 @@ class DiscordHandler(APIHandler):
         if self.is_connected:
             return StatusResponse(True)
 
-        url = f'https://discord.com/api/v10/applications/@me'
+        url = 'https://discord.com/api/v10/applications/@me'
         result = requests.get(
             url,
             headers={
@@ -160,8 +160,7 @@ class DiscordHandler(APIHandler):
                     message['author_username'] = author.get('username')
                     message['author_global_name'] = author.get('global_name')
 
-            df = pd.DataFrame.from_records(json)
-            return df
+            return pd.DataFrame.from_records(json)
         elif operation == 'send_message':
             url = (
                 f'https://discord.com/api/v10/channels/{params["channel_id"]}/messages'
@@ -180,7 +179,6 @@ class DiscordHandler(APIHandler):
             if result.status_code != 200:
                 raise ValueError(f'Error calling Discord API: {result.json()}')
 
-            df = pd.DataFrame.from_records([result.json()])
-            return df
+            return pd.DataFrame.from_records([result.json()])
         else:
             raise ValueError(f"Unsupported method: {operation}")

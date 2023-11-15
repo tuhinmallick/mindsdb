@@ -37,7 +37,7 @@ class InfluxDBTables(APITable):
             self.get_columns()
         )
         selected_columns, where_conditions, order_by_conditions, _ = select_statement_parser.parse_query()
-        
+
         try:
             selected_columns.remove("name")
             selected_columns.remove("tags")
@@ -45,9 +45,7 @@ class InfluxDBTables(APITable):
             logger.warn(e)
 
         formatted_query=self.get_select_query(table_name,selected_columns,where_conditions,order_by_conditions,query.limit)
-        influxdb_tables_df  = self.handler.call_influxdb_tables(formatted_query)
-
-        return influxdb_tables_df
+        return self.handler.call_influxdb_tables(formatted_query)
 
     def get_columns(self) -> List[str]:
         """Gets all columns to be returned in pandas DataFrame responses

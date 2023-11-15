@@ -25,22 +25,17 @@ class CoinBaseAggregatedTradesTable(APITable):
             'symbol': CoinBaseAggregatedTradesTable.DEFAULT_SYMBOL,
         }
         for op, arg1, arg2 in conditions:
-            if arg1 == 'interval':
-                if op != '=':
-                    raise NotImplementedError
+            if arg1 == 'interval' and op == '=':
                 params['interval'] = arg2
 
+            elif arg1 == 'interval' or arg1 == 'symbol' and op != '=':
+                raise NotImplementedError
             elif arg1 == 'symbol':
-                if op != '=':
-                    raise NotImplementedError
                 params['symbol'] = arg2
 
-        coinbase_candle_data = self.handler.call_coinbase_api(
-            method_name='get_candle',
-            params=params
+        return self.handler.call_coinbase_api(
+            method_name='get_candle', params=params
         )
-
-        return coinbase_candle_data
 
     def get_columns(self):
         """Gets all columns to be returned in pandas DataFrame responses"""

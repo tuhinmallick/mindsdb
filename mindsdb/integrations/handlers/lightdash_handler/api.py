@@ -12,18 +12,14 @@ class Lightdash:
         kwargs = {
             "method": method,
             "url": urljoin(self.base_url, relative_endpoint),
-            "headers": {
-                "Authorization": "ApiKey " + self.api_key,
-            }
+            "headers": {"Authorization": f"ApiKey {self.api_key}"},
         }
         if data is not None:
             kwargs["data"] = data
         return requests.request(**kwargs)
 
     def is_connected(self) -> bool:
-        if self.get_user() is not None:
-            return True
-        return False
+        return self.get_user() is not None
 
     def get_user(self):
         """
@@ -47,9 +43,7 @@ class Lightdash:
                {'action': ...
         """
         resp = self._request("get", "user")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_org(self):
         """
@@ -62,9 +56,7 @@ class Lightdash:
               'needsProject': False}
         """
         resp = self._request("get", "org")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_projects(self):
         """
@@ -75,9 +67,7 @@ class Lightdash:
               'type': 'DEFAULT'}]
         """
         resp = self._request("get", "org/projects")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_org_members(self):
         """
@@ -93,9 +83,7 @@ class Lightdash:
               'isInviteExpired': False}]
         """
         resp = self._request("get", "org/users")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_project(self, project_uuid: str):
         """
@@ -130,9 +118,7 @@ class Lightdash:
               "organizationUuid": "string" }
         """
         resp = self._request("get", f"projects/{project_uuid}")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_charts_in_project(self, project_uuid: str):
         """
@@ -151,9 +137,7 @@ class Lightdash:
               "chartType": "string"}]
         """
         resp = self._request("get", f"projects/{project_uuid}/charts")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_spaces_in_project(self, project_uuid: str):
         """
@@ -172,9 +156,7 @@ class Lightdash:
                   "string" ]}]
         """
         resp = self._request("get", f"projects/{project_uuid}/spaces")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_project_access_list(self, project_uuid: str):
         """
@@ -188,9 +170,7 @@ class Lightdash:
               "userUuid": "string" }]
         """
         resp = self._request("get", f"projects/{project_uuid}/access")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_validation_results(self, project_uuid: str):
         """
@@ -213,9 +193,7 @@ class Lightdash:
               "chartUuid": "string"}]
         """
         resp = self._request("get", f"projects/{project_uuid}/validate")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_space(self, project_uuid: str, space_uuid: str):
         """
@@ -274,9 +252,7 @@ class Lightdash:
               "organizationUuid": "string" }
         """
         resp = self._request("get", f"projects/{project_uuid}/spaces/{space_uuid}")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_chart_version_history(self, chart_uuid: str):
         """
@@ -291,9 +267,7 @@ class Lightdash:
                 "lastName": "string" }}]
         """
         resp = self._request("get", f"saved/{chart_uuid}/history")
-        if resp.ok:
-            return resp.json()["results"]["history"]
-        return []
+        return resp.json()["results"]["history"] if resp.ok else []
 
     def get_chart(self, chart_uuid: str, version_uuid: str):
         """
@@ -404,9 +378,7 @@ class Lightdash:
               "chartUuid": "string" }
         """
         resp = self._request("get", f"saved/{chart_uuid}/version/{version_uuid}")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_scheduler_logs(self, project_uuid: str):
         """
@@ -456,9 +428,7 @@ class Lightdash:
                       "schedulerSlackTargetUuid": "string" } ] } ] }
         """
         resp = self._request("get", f"schedulers/{project_uuid}/logs")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_scheduler(self, scheduler_uuid: str):
         """
@@ -485,9 +455,7 @@ class Lightdash:
                   "schedulerSlackTargetUuid": "string" } ] }
         """
         resp = self._request("get", f"schedulers/{scheduler_uuid}")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}
 
     def get_scheduler_jobs(self, scheduler_uuid: str):
         """
@@ -497,9 +465,7 @@ class Lightdash:
                 "date": "2019-08-24T14:15:22Z" } ]
         """
         resp = self._request("get", f"schedulers/{scheduler_uuid}/jobs")
-        if resp.ok:
-            return resp.json()["results"]
-        return []
+        return resp.json()["results"] if resp.ok else []
 
     def get_scheduler_job_status(self, job_id: str):
         """
@@ -508,6 +474,4 @@ class Lightdash:
             { "status": "string" }
         """
         resp = self._request("get", f"schedulers/job/{job_id}/status")
-        if resp.ok:
-            return resp.json()["results"]
-        return {}
+        return resp.json()["results"] if resp.ok else {}

@@ -31,28 +31,27 @@ def create_chatbot(project_name, name, chatbot):
 
     session_controller = SessionController()
 
-    if 'database_id' not in chatbot:
-        if 'db_params' in chatbot and 'db_engine' in chatbot:
-            db_name = chatbot['name'] + '_db'
-
-            # try to drop
-            existing_db = session_controller.integration_controller.get(db_name)
-            if existing_db:
-                # drop
-                session_controller.integration_controller.delete(db_name)
-
-            database_id = session_controller.integration_controller.add(db_name, chatbot['db_engine'],
-                                                                        chatbot['db_params'])
-
-        else:
-            return http_error(
-                HTTPStatus.BAD_REQUEST,
-                'Missing field',
-                'Missing "database_id" or ("db_engine" and "database_param") fields for chatbot'
-            )
-    else:
+    if 'database_id' in chatbot:
         database_id = chatbot.get('database_id', None)
 
+    elif 'db_params' in chatbot and 'db_engine' in chatbot:
+        db_name = chatbot['name'] + '_db'
+
+        if existing_db := session_controller.integration_controller.get(
+            db_name
+        ):
+            # drop
+            session_controller.integration_controller.delete(db_name)
+
+        database_id = session_controller.integration_controller.add(db_name, chatbot['db_engine'],
+                                                                    chatbot['db_params'])
+
+    else:
+        return http_error(
+            HTTPStatus.BAD_REQUEST,
+            'Missing field',
+            'Missing "database_id" or ("db_engine" and "database_param") fields for chatbot'
+        )
     is_running = chatbot.get('is_running', False)
     params = chatbot.get('params', {})
 
@@ -240,9 +239,9 @@ class ChatBotResource(Resource):
 
             db_name = chatbot['name'] + '_db'
 
-            # try to drop
-            existing_db = session_controller.integration_controller.get(db_name)
-            if existing_db:
+            if existing_db := session_controller.integration_controller.get(
+                db_name
+            ):
                 # drop
                 session_controller.integration_controller.delete(db_name)
 

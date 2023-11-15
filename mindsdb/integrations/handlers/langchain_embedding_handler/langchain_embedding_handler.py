@@ -148,10 +148,7 @@ class LangchainEmbeddingHandler(BaseMLEngine):
         # if input_columns is an empty list, use all the columns
         input_columns = user_args.get("input_columns") or df.columns.tolist()
         # check all the input columns are in the df
-        if not all(
-            # ignore surrounding ` in the column names when checking
-            [col in cols_dfs for col in input_columns]
-        ):
+        if any(col not in cols_dfs for col in input_columns):
             raise Exception(
                 f"Input columns {input_columns} not found in the input dataframe. Available columns are {df.columns}"
             )
@@ -160,10 +157,7 @@ class LangchainEmbeddingHandler(BaseMLEngine):
         df_texts = df[input_columns].apply(self.row_to_document, axis=1)
         embeddings = model.embed_documents(df_texts.tolist())
 
-        # create a new dataframe with the embeddings
-        df_embeddings = df.copy().assign(**{target: embeddings})
-
-        return df_embeddings
+        return df.copy().assign(**{target: embeddings})
 
     def row_to_document(self, row: pd.Series) -> str:
         """
@@ -175,10 +169,9 @@ class LangchainEmbeddingHandler(BaseMLEngine):
         """
         fields = row.index.tolist()
         values = row.values.tolist()
-        document = "\n".join(
+        return "\n".join(
             [f"{field}: {value}" for field, value in zip(fields, values)]
         )
-        return document
 
     def finetune(
         self, df: Union[DataFrame, None] = None, args: Union[Dict, None] = None

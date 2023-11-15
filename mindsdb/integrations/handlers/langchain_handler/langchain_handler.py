@@ -126,7 +126,7 @@ class LangChainHandler(BaseMLEngine):
 
         if args.get('mode') != 'conversational':
             if 'prompt_template' not in args and 'prompt_template' not in pred_args:
-                raise Exception(f"This model expects a prompt template, please provide one.")
+                raise Exception("This model expects a prompt template, please provide one.")
 
         if 'stops' in pred_args:
             self.stops = pred_args['stops']
@@ -224,10 +224,9 @@ class LangChainHandler(BaseMLEngine):
 
         # user - assistant conversation. get all except the last message
         for row in df[:-1].to_dict('records'):
-            question = row[args['user_column']]
             answer = row[args['assistant_column']]
 
-            if question:
+            if question := row[args['user_column']]:
                 memory.chat_memory.add_user_message(question)
             if answer:
                 memory.chat_memory.add_ai_message(answer)
@@ -365,11 +364,11 @@ class LangChainHandler(BaseMLEngine):
                         #
                         # Ideally, in the future, we would write a parser that is more robust and flexible than the one Langchain uses.
                         response = response.lstrip(_PARSING_ERROR_PREFIX).rstrip('`')
-                        log.logger.info(f"Agent failure, salvaging response...")
+                        log.logger.info("Agent failure, salvaging response...")
                         completions.append(response)
                 except Exception as e:
                     completions.append(f'agent failed with error:\n{str(e)}...')
-            return [c for c in completions]
+            return list(completions)
 
         completion = _completion(agent, prompts)
 
@@ -391,8 +390,7 @@ class LangChainHandler(BaseMLEngine):
                 # for them, we report the last observed value
                 raise Exception('This model needs to be used before it can be described.')
 
-            description = pd.DataFrame(info)
-            return description
+            return pd.DataFrame(info)
         else:
             tables = ['info']
             return pd.DataFrame(tables, columns=['tables'])

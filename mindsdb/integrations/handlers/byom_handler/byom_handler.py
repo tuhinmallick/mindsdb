@@ -76,13 +76,13 @@ class BYOMHandler(BaseMLEngine):
                 engine_version = int(engine_version)
             except Exception:
                 engine_version = 1
-        if isinstance(engine_version, int) is False:
+        if not isinstance(engine_version, int):
             engine_version = 1
         return engine_version
 
     @staticmethod
     def create_validation(target: str, args: dict = None, **kwargs) -> None:
-        if isinstance(args, dict) is False:
+        if not isinstance(args, dict):
             return
         using_args = args.get('using', {})
         engine_version = using_args.get('engine_version')
@@ -92,7 +92,7 @@ class BYOMHandler(BaseMLEngine):
             connection_args = kwargs['handler_storage'].get_connection_args()
             versions = connection_args.get('versions')
             if isinstance(versions, dict):
-                engine_version = max([int(x) for x in versions.keys()])
+                engine_version = max(int(x) for x in versions.keys())
             else:
                 engine_version = 1
             using_args['engine_version'] = engine_version
@@ -177,9 +177,7 @@ class BYOMHandler(BaseMLEngine):
 
         model_proxy = self._get_model_proxy(engine_version)
         model_state = self.model_storage.file_get('model')
-        pred_df = model_proxy.predict(df, model_state, pred_args)
-
-        return pred_df
+        return model_proxy.predict(df, model_state, pred_args)
 
     def create_engine(self, connection_args):
         code_path = Path(connection_args['code'])
@@ -223,7 +221,10 @@ class BYOMHandler(BaseMLEngine):
         requirements_path = Path(connection_args['modules'])
 
         connection_args = self.engine_storage.get_connection_args()
-        if isinstance(connection_args, dict) is False or 'handler_version' not in connection_args:
+        if (
+            not isinstance(connection_args, dict)
+            or 'handler_version' not in connection_args
+        ):
             connection_args = {
                 'handler_version': __version__,
                 'versions': {
@@ -233,7 +234,7 @@ class BYOMHandler(BaseMLEngine):
                     }
                 }
             }
-        new_version = str(max([int(x) for x in connection_args['versions'].keys()]) + 1)
+        new_version = str(max(int(x) for x in connection_args['versions'].keys()) + 1)
 
         connection_args['versions'][new_version] = {
             'code': code_path.name,
@@ -415,14 +416,13 @@ class ModelWrapperSafe:
         pattern = '^[\w\\[\\]-]+[=!<>\s]*[\d\.]*[,=!<>\s]*[\d\.]*$'  # noqa
         modules = []
         for line in requirements.split(b'\n'):
-            line = line.decode().strip()
-            if line:
+            if line := line.decode().strip():
                 if re.match(pattern, line):
                     modules.append(line)
                 else:
                     raise Exception(f'Wrong requirement: {line}')
 
-        is_pandas = any([m.lower().startswith('pandas') for m in modules])
+        is_pandas = any(m.lower().startswith('pandas') for m in modules)
         if not is_pandas:
             modules.append('pandas >=2.0.0, <2.1.0')
 
@@ -480,8 +480,7 @@ class ModelWrapperSafe:
             'args': args,
         }
 
-        model_state = self._run_command(params)
-        return model_state
+        return self._run_command(params)
 
     def predict(self, df, model_state, args):
 
@@ -514,8 +513,7 @@ class ModelWrapperSafe:
             'model_state': model_state,
             'attribute': attribute
         }
-        df = self._run_command(params)
-        return df
+        return self._run_command(params)
 
 
 connection_args = OrderedDict(

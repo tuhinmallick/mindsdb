@@ -28,10 +28,7 @@ def move_under(d, key_contents_to_move, key_to_move_under=None):
 
 
 def select_keys(d, keys):
-    new_d = {}
-    for key in keys:
-        new_d[key] = d.get(key, "")
-    return new_d
+    return {key: d.get(key, "") for key in keys}
 
 
 class CustomAPITable(APITable):
@@ -391,9 +388,12 @@ class DashboardsTable(CustomAPITable):
     def select(self, query: ast.Select) -> pd.DataFrame:
         project_uuid = self.get_where_param(query, "project_uuid")
         space_uuid = self.get_where_param(query, "space_uuid")
-        data = []
-        for row in self.connection.get_space(project_uuid, space_uuid).get("dashboards", []):
-            data.append(select_keys(row, self.columns))
+        data = [
+            select_keys(row, self.columns)
+            for row in self.connection.get_space(project_uuid, space_uuid).get(
+                "dashboards", []
+            )
+        ]
         df = pd.DataFrame.from_records(data, columns=self.columns)
         return self.apply_query_params(df, query)
 
@@ -420,9 +420,12 @@ class QueriesTable(CustomAPITable):
     def select(self, query: ast.Select) -> pd.DataFrame:
         project_uuid = self.get_where_param(query, "project_uuid")
         space_uuid = self.get_where_param(query, "space_uuid")
-        data = []
-        for row in self.connection.get_space(project_uuid, space_uuid).get("queries", []):
-            data.append(select_keys(row, self.columns))
+        data = [
+            select_keys(row, self.columns)
+            for row in self.connection.get_space(project_uuid, space_uuid).get(
+                "queries", []
+            )
+        ]
         df = pd.DataFrame.from_records(data, columns=self.columns)
         return self.apply_query_params(df, query)
 

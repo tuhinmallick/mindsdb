@@ -62,12 +62,11 @@ class InstatusHandler(APIHandler):
                 headers = {"Authorization": f"Bearer {self._api_key}"}
                 response = requests.get(f"{self._base_url}/v2/pages", headers=headers)
 
-                if response.status_code == 200:
-                    self.connection = response
-                    self.is_connected = True
-                    return StatusResponse(True)
-                else:
+                if response.status_code != 200:
                     raise Exception(f"Error connecting to Instatus API: {response.status_code} - {response.text}")
+                self.connection = response
+                self.is_connected = True
+                return StatusResponse(True)
             except requests.RequestException as e:
                 raise Exception(f"Request to Instatus API failed: {str(e)}")
 
@@ -96,22 +95,21 @@ class InstatusHandler(APIHandler):
         headers = {"Authorization": f"Bearer {self._api_key}"}
         url = f"{self._base_url}{endpoint}"
 
-        if method.upper() in ('GET', 'POST', 'PUT', 'DELETE'):
+        if method.upper() in {'GET', 'POST', 'PUT', 'DELETE'}:
             headers['Content-Type'] = 'application/json'
 
-            if method.upper() in ('POST', 'PUT', 'DELETE'):
+            if method.upper() in {'POST', 'PUT', 'DELETE'}:
                 response = requests.request(method, url, headers=headers, params=params, data=data)
             else:
                 response = requests.get(url, headers=headers, params=params)
 
-            if response.status_code == 200:
-                data = response.json()
-                return pd.DataFrame(data) if isinstance(data, list) else pd.DataFrame({
-                    'data': data
-                })
-            else:
+            if response.status_code != 200:
                 raise Exception(f"Error connecting to Instatus API: {response.status_code} - {response.text}")
 
+            data = response.json()
+            return pd.DataFrame(data) if isinstance(data, list) else pd.DataFrame({
+                'data': data
+            })
         return pd.DataFrame()
 
 

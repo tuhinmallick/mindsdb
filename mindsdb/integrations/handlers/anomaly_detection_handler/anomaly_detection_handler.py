@@ -108,8 +108,7 @@ def get_model_names(using_args):
     model_names = using_args["model_name"] if "model_name" in using_args else model_names
     model_names = using_args["ensemble_models"] if "ensemble_models" in using_args else model_names
     model_names = [model_names] if model_names is None else model_names
-    model_names = [model_names] if type(model_names) is str else model_names
-    return model_names
+    return [model_names] if type(model_names) is str else model_names
 
 
 class AnomalyDetectionHandler(BaseMLEngine):
@@ -168,10 +167,9 @@ class AnomalyDetectionHandler(BaseMLEngine):
     def describe(self, attribute="model"):
         model_args = self.model_storage.json_get("model_args")
         df = pd.DataFrame({"model_name": [], "target": []})
-        if attribute == "model":
-            for model_name, target in zip(model_args["model_name"], model_args["target"]):
-                df2 = pd.DataFrame({"model_name": model_name, "target": target}, index=[0])
-                df = pd.concat([df, df2], ignore_index=True)
-            return df
-        else:
+        if attribute != "model":
             raise NotImplementedError(f"attribute {attribute} not implemented")
+        for model_name, target in zip(model_args["model_name"], model_args["target"]):
+            df2 = pd.DataFrame({"model_name": model_name, "target": target}, index=[0])
+            df = pd.concat([df, df2], ignore_index=True)
+        return df

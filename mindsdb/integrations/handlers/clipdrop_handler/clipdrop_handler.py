@@ -54,7 +54,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.remove_text(conds.get("image_url"))
 
-        supported_params = set(["image_url"])
+        supported_params = {"image_url"}
 
         if "image_url" not in df.columns:
             raise Exception("`image_url` column has to be given in the query.")
@@ -73,7 +73,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.remove_background(conds.get("image_url"))
 
-        supported_params = set(["image_url"])
+        supported_params = {"image_url"}
 
         if "image_url" not in df.columns:
             raise Exception("`image_url` column has to be given in the query.")
@@ -92,7 +92,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.sketch_to_image(conds.get("image_url"), conds.get("text"))
 
-        supported_params = set(["image_url", "text"])
+        supported_params = {"image_url", "text"}
 
         if "image_url" not in df.columns:
             raise Exception("`image_url` column has to be given in the query.")
@@ -114,7 +114,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.text_to_image(conds.get("text"))
 
-        supported_params = set(["text"])
+        supported_params = {"text"}
 
         if "text" not in df.columns:
             raise Exception("`text` column has to be given in the query.")
@@ -133,7 +133,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.replace_background(conds.get("image_url"), conds.get("text"))
 
-        supported_params = set(["image_url", "text"])
+        supported_params = {"image_url", "text"}
 
         if "image_url" not in df.columns:
             raise Exception("`image_url` column has to be given in the query.")
@@ -155,7 +155,7 @@ class ClipdropHandler(BaseMLEngine):
             conds = conds.to_dict()
             return client.reimagine(conds.get("text"))
 
-        supported_params = set(["text"])
+        supported_params = {"text"}
 
         if "text" not in df.columns:
             raise Exception("`text` column has to be given in the query.")

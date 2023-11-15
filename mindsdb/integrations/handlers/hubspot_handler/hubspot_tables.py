@@ -166,7 +166,7 @@ class CompaniesTable(APITable):
     def get_companies(self, **kwargs) -> List[Dict]:
         hubspot = self.handler.connect()
         companies = hubspot.crm.companies.get_all(**kwargs)
-        companies_dict = [
+        return [
             {
                 "id": company.id,
                 "name": company.properties.get("name", None),
@@ -180,7 +180,6 @@ class CompaniesTable(APITable):
             }
             for company in companies
         ]
-        return companies_dict
 
     def create_companies(self, companies_data: List[Dict[Text, Any]]) -> None:
         hubspot = self.handler.connect()
@@ -353,7 +352,7 @@ class ContactsTable(APITable):
     def get_contacts(self, **kwargs) -> List[Dict]:
         hubspot = self.handler.connect()
         contacts = hubspot.crm.contacts.get_all(**kwargs)
-        contacts_dict = [
+        return [
             {
                 "id": contact.id,
                 "email": contact.properties["email"],
@@ -367,7 +366,6 @@ class ContactsTable(APITable):
             }
             for contact in contacts
         ]
-        return contacts_dict
 
     def create_contacts(self, contacts_data: List[Dict[Text, Any]]) -> None:
         hubspot = self.handler.connect()
@@ -540,7 +538,7 @@ class DealsTable(APITable):
     def get_deals(self, **kwargs) -> List[Dict]:
         hubspot = self.handler.connect()
         deals = hubspot.crm.deals.get_all(**kwargs)
-        deals_dict = [
+        return [
             {
                 "id": deal.id,
                 "dealname": deal.properties["dealname"],
@@ -554,7 +552,6 @@ class DealsTable(APITable):
             }
             for deal in deals
         ]
-        return deals_dict
 
     def create_deals(self, deals_data: List[Dict[Text, Any]]) -> None:
         hubspot = self.handler.connect()

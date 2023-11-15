@@ -15,7 +15,7 @@ def create_skill(project_name, skill):
             return http_error(
                 HTTPStatus.BAD_REQUEST,
                 'Missing field',
-                'Missing "{}" field for skill'.format(required_field)
+                f'Missing "{required_field}" field for skill',
             )
     name = skill['name']
     type = skill['type']

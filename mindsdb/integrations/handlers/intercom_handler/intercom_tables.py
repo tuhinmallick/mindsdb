@@ -58,21 +58,11 @@ class Articles(APITable):
             limit = query.limit.value if query.limit else None
             result_df = pd.DataFrame(columns=selected_columns)
 
-            if limit:
-                # Calculate the number of pages required
-                page_count = (limit + page_size - 1) // page_size
-            else:
-                page_count = 1
-
+            page_count = (limit + page_size - 1) // page_size if limit else 1
             for page in range(1, page_count + 1):
                 if limit == 0:
                     break
-                if limit:
-                    # Calculate the page size for this request
-                    current_page_size = min(page_size, limit)
-                else:
-                    current_page_size = page_size
-
+                current_page_size = min(page_size, limit) if limit else page_size
                 df = pd.DataFrame(self.handler.call_intercom_api(endpoint='/articles', params={'page': page, 'per_page': current_page_size})['data'][0])
                 if len(df) == 0:
                     break
@@ -90,12 +80,10 @@ class Articles(APITable):
         Returns:
             None
         """
-        data = {}
-        for column, value in zip(query.columns, query.values[0]):
-            if isinstance(value, Constant):
-                data[column.name] = value.value
-            else:
-                data[column.name] = value
+        data = {
+            column.name: value.value if isinstance(value, Constant) else value
+            for column, value in zip(query.columns, query.values[0])
+        }
         self.handler.call_intercom_api(endpoint='/articles', method='POST', data=json.dumps(data))
 
     def update(self, query: ast.Update) -> None:
@@ -116,12 +104,10 @@ class Articles(APITable):
             else:
                 raise NotImplementedError
 
-        data = {}
-        for key, value in query.update_columns.items():
-            if isinstance(value, Constant):
-                data[key] = value.value
-            else:
-                data[key] = value
+        data = {
+            key: value.value if isinstance(value, Constant) else value
+            for key, value in query.update_columns.items()
+        }
         self.handler.call_intercom_api(endpoint=f'/articles/{_id}', method='PUT', data=json.dumps(data))
 
     def get_columns(self, ignore: List[str] = []) -> List[str]:

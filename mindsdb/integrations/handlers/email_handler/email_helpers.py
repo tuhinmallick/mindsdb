@@ -43,11 +43,9 @@ class EmailClient:
         if from_ is not None:
             query_parts.append(f'(FROM "{from_}")')
 
-        if since_date is not None:
-            since_date_str = since_date.strftime("%d-%b-%Y")
-        else:
-            since_date = datetime.today() - timedelta(days=10)
-            since_date_str = since_date.strftime("%d-%b-%Y")
+        if since_date is None:
+            since_date = datetime.now() - timedelta(days=10)
+        since_date_str = since_date.strftime("%d-%b-%Y")
         query_parts.append(f'(SINCE "{since_date_str}")')
 
         if until_date is not None:
@@ -71,12 +69,13 @@ class EmailClient:
                 ValueError(f"Could not decode email with id {emailid}")
             email_message = email.message_from_string(raw_email)
 
-            email_line = {}
-            email_line['id'] = emailid
-            email_line["to"] = email_message['To']
-            email_line["from"] = email_message['From']
-            email_line["subject"] = str(email_message['Subject'])
-            email_line["created_at"] = email_message['Date']
+            email_line = {
+                'id': emailid,
+                "to": email_message['To'],
+                "from": email_message['From'],
+                "subject": str(email_message['Subject']),
+                "created_at": email_message['Date'],
+            }
             resp, email_data = self.imap_server.uid('fetch', emailid, '(BODY[TEXT])')
             try:
                 email_line["body"] = email_data[0][1].decode('utf-8')

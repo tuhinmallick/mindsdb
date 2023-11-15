@@ -99,9 +99,9 @@ class CloudSpannerHandler(DatabaseHandler):
             )
             response.error_message = str(e)
         finally:
-            if response.success is True and self.is_connected:
+            if response.success and self.is_connected:
                 self.disconnect()
-            if response.success is False and self.is_connected:
+            if not response.success and self.is_connected:
                 self.is_connected = False
 
         return response

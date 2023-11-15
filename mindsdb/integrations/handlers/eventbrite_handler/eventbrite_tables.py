@@ -50,12 +50,11 @@ class EventbriteUserTable(APITable):
 
         # Select columns based on query
         columns = self.get_columns()
-        selected_columns = [
+        if selected_columns := [
             target.parts[-1]
             for target in query.targets
             if isinstance(target, ast.Identifier)
-        ]
-        if selected_columns:
+        ]:
             columns = [col for col in columns if col in selected_columns]
         data = data[columns]
 
@@ -351,7 +350,7 @@ class EventbriteEventDetailsTable(APITable):
         self.handler.connect()
 
         conditions = extract_comparison_conditions(query.where)
-        allowed_keys = set(["event_id"])
+        allowed_keys = {"event_id"}
 
         params = {}
         filters = []
@@ -483,7 +482,7 @@ class EventbriteEventsTable(APITable):
         self.handler.connect()
 
         conditions = extract_comparison_conditions(query.where)
-        allowed_keys = set(["organization_id"])
+        allowed_keys = {"organization_id"}
 
         params = {}
         for op, arg1, arg2 in conditions:

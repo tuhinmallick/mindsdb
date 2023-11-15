@@ -4,9 +4,7 @@ from setuptools import find_packages, setup
 
 # An special env var that allows us to disable the installation of the default extras for advanced users / containers / etc
 MINDSDB_PIP_INSTALL_DEFAULT_EXTRAS = (
-    True
-    if os.getenv("MINDSDB_PIP_INSTALL_DEFAULT_EXTRAS", "true").lower() == "true"
-    else False
+    os.getenv("MINDSDB_PIP_INSTALL_DEFAULT_EXTRAS", "true").lower() == "true"
 )
 DEFAULT_PIP_EXTRAS = [
     'postgres',
@@ -63,9 +61,7 @@ def expand_requirements_links(requirements: list) -> list:
 
     for req in to_remove:
         requirements.remove(req)
-    for req in to_add:
-        requirements.append(req)
-
+    requirements.extend(iter(to_add))
     return list(set(requirements))  # Remove duplicates
 
 
@@ -97,7 +93,7 @@ def define_deps():
     for r in defaults:
         if 'git+https' in r:
             pkg = r.split('#')[-1]
-            links.append(r + '-9876543210')
+            links.append(f'{r}-9876543210')
             requirements.append(pkg.replace('egg=', ''))
         else:
             requirements.append(r.strip())

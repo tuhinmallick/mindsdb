@@ -79,7 +79,10 @@ class CoinBaseHandler(APIHandler):
         current_time = datetime.datetime.now()
         start_time = current_time - datetime.timedelta(seconds=granularity)
         start_time_iso = start_time.isoformat().split(".")[0] + "-04:00"
-        path = "/products/" + symbol + "/candles?granularity=" + str(granularity) + "&start=" + start_time_iso
+        path = (
+            f"/products/{symbol}/candles?granularity={granularity}&start="
+            + start_time_iso
+        )
         headers = self.generate_api_headers("GET", path)
         url = _BASE_COINBASE_US_URL + path
         response = requests.get(url, headers=headers)
@@ -104,8 +107,7 @@ class CoinBaseHandler(APIHandler):
         if 'interval' not in params:
             raise ValueError('Missing "interval" param (60, 300, 900, 3600, 21600, 86400).')
 
-        candle = self.get_coinbase_candle(params['symbol'], int(params['interval']))
-        return candle
+        return self.get_coinbase_candle(params['symbol'], int(params['interval']))
 
     def native_query(self, query: str = None) -> Response:
         ast = parse_sql(query, dialect='mindsdb')
@@ -115,15 +117,14 @@ class CoinBaseHandler(APIHandler):
         timestamp = str(int(time.time()))
         message = timestamp + method + path
         signature = base64.b64encode(hmac.new(base64.b64decode(self.api_secret), str.encode(message), hashlib.sha256).digest())
-        headers = {
+        return {
             "Content-Type": "application/json",
             "CB-ACCESS-SIGN": signature,
             "CB-ACCESS-KEY": self.api_key,
             "CB-ACCESS-TIMESTAMP": timestamp,
             "CB-VERSION": "2015-04-08",
-            "CB-ACCESS-PASSPHRASE": self.api_passphrase
+            "CB-ACCESS-PASSPHRASE": self.api_passphrase,
         }
-        return headers
 
     def call_coinbase_api(self, method_name: str = None, params: Dict = None) -> pd.DataFrame:
         """Calls the CoinBase API method with the given params.
@@ -136,7 +137,9 @@ class CoinBaseHandler(APIHandler):
         """
         if method_name == 'get_candle':
             return self._get_candle(params)
-        raise NotImplementedError('Method name {} not supported by CoinBase API Handler'.format(method_name))
+        raise NotImplementedError(
+            f'Method name {method_name} not supported by CoinBase API Handler'
+        )
 
 
 connection_args = OrderedDict(

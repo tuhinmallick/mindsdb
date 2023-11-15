@@ -85,12 +85,10 @@ class StatusPages(APITable):
         Returns:
             None
         """
-        data = {}
-        for column, value in zip(query.columns, query.values[0]):
-            if isinstance(value, Constant):
-                data[column.name] = value.value
-            else:
-                data[column.name] = value
+        data = {
+            column.name: value.value if isinstance(value, Constant) else value
+            for column, value in zip(query.columns, query.values[0])
+        }
         self.handler.call_instatus_api(endpoint='/v1/pages', method='POST', data=json.dumps(data))
 
     def update(self, query: ast.Update) -> None:
@@ -110,13 +108,11 @@ class StatusPages(APITable):
             else:
                 raise NotImplementedError
 
-        data = {}
-        for key, value in query.update_columns.items():
-            if isinstance(value, Constant):
-                if key == 'components':
-                    data[key] = json.loads(value.value)  # Convert 'components' value to a Python list
-                else:
-                    data[key] = value.value
+        data = {
+            key: json.loads(value.value) if key == 'components' else value.value
+            for key, value in query.update_columns.items()
+            if isinstance(value, Constant)
+        }
         self.handler.call_instatus_api(endpoint=f'/v2/{_id}', method='PUT', data=json.dumps(data))
 
     def get_columns(self, ignore: List[str] = []) -> List[str]:

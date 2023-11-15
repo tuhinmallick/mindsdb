@@ -99,7 +99,7 @@ class InfluxDBHandler(APIHandler):
         """
         influx_connection=self.connect()
         if query is None:
-            query='SELECT * FROM '+ f"{self.connection_data['influxdb_table_name']}"
-        
+            query = f"SELECT * FROM {self.connection_data['influxdb_table_name']}"
+
         table=influx_connection.query(query=query,database=self.connection_data['influxdb_db_name'], language='sql')
         return table.to_pandas()
