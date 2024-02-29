@@ -96,7 +96,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [tuhinmallick/mindsdb](https://github.com/tuhinmallick/mindsdb)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|107<br/>Tools used|02/19/24 <br/>Report generated|
+|107<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -479,7 +479,7 @@ Full tech stack [here](/techstack.md)
 |[chromadb](https://pypi.org/project/chromadb)|N/A|08/30/23|Yuhui Shi |N/A|N/A|
 |[ckanapi](https://pypi.org/project/ckanapi)|N/A|07/07/22|Konstantin Sivakov |MIT|N/A|
 |[cohere](https://pypi.org/project/cohere)|v4.5.1|05/23/23|bala_ceg |N/A|N/A|
-|[cryptography](https://pypi.org/project/cryptography)|v35.0|09/09/22|Max Stepanov |BSD-3-Clause,Apache-2.0|[CVE-2023-50782](https://github.com/advisories/GHSA-3ww4-gg4f-jr7f) (High)<br/>[CVE-2023-0286](https://github.com/advisories/GHSA-x4qr-2fvf-3mr5) (High)<br/>[CVE-2024-0727](https://github.com/advisories/GHSA-9v9h-cgj8-h64p) (Moderate)<br/>[CVE-2023-49083](https://github.com/advisories/GHSA-jfhm-5ghh-2f97) (Moderate)<br/>[CVE-2023-23931](https://github.com/advisories/GHSA-w7pp-m8wf-vj6r) (Moderate)<br/>[](https://github.com/advisories/GHSA-v8gr-m533-ghj9) (Low)<br/>[](https://github.com/advisories/GHSA-5cpq-8wj7-hf2v) (Low)<br/>[](https://github.com/advisories/GHSA-jm77-qphf-c4w8) (Low)|
+|[cryptography](https://pypi.org/project/cryptography)|v35.0|09/09/22|Max Stepanov |BSD-3-Clause,Apache-2.0|[CVE-2023-0286](https://github.com/advisories/GHSA-x4qr-2fvf-3mr5) (High)<br/>[CVE-2023-50782](https://github.com/advisories/GHSA-3ww4-gg4f-jr7f) (High)<br/>[CVE-2023-49083](https://github.com/advisories/GHSA-jfhm-5ghh-2f97) (Moderate)<br/>[CVE-2023-23931](https://github.com/advisories/GHSA-w7pp-m8wf-vj6r) (Moderate)<br/>[CVE-2024-0727](https://github.com/advisories/GHSA-9v9h-cgj8-h64p) (Moderate)<br/>[](https://github.com/advisories/GHSA-v8gr-m533-ghj9) (Low)<br/>[](https://github.com/advisories/GHSA-5cpq-8wj7-hf2v) (Low)<br/>[](https://github.com/advisories/GHSA-jm77-qphf-c4w8) (Low)|
 |[dask](https://pypi.org/project/dask)|N/A|09/23/22|Max Stepanov |BSD-3-Clause|N/A|
 |[dill](https://pypi.org/project/dill)|v0.3.6|06/21/23|Max Stepanov |BSD-3-Clause|N/A|
 |[google](https://pypi.org/project/google)|N/A|11/14/23|Hamish Fagg |BSD-3-Clause|N/A|
@@ -491,7 +491,7 @@ Full tech stack [here](/techstack.md)
 |[html2text](https://pypi.org/project/html2text)|N/A|10/04/23|Daniel Usvyat |GPL-3.0|N/A|
 |[huggingface-hub](https://pypi.org/project/huggingface-hub)|N/A|07/18/23|andrew |N/A|N/A|
 |[joblib](https://pypi.org/project/joblib)|N/A|11/14/23|Hamish Fagg |BSD-3-Clause|N/A|
-|[langchain](https://pypi.org/project/langchain)|v0.0.303|11/14/23|Hamish Fagg |N/A|[CVE-2023-39659](https://github.com/advisories/GHSA-prgp-w7vf-ch62) (Critical)<br/>[CVE-2023-36281](https://github.com/advisories/GHSA-7gfq-f96f-g85j) (Critical)<br/>[CVE-2023-39631](https://github.com/advisories/GHSA-f73w-4m7g-ch9x) (Critical)<br/>[CVE-2023-46229](https://github.com/advisories/GHSA-655w-fm8m-m478) (High)<br/>[CVE-2023-32786](https://github.com/advisories/GHSA-6h8p-4hx9-w66c) (High)|
+|[langchain](https://pypi.org/project/langchain)|v0.0.303|11/14/23|Hamish Fagg |N/A|[CVE-2023-36281](https://github.com/advisories/GHSA-7gfq-f96f-g85j) (Critical)<br/>[CVE-2023-39631](https://github.com/advisories/GHSA-f73w-4m7g-ch9x) (Critical)<br/>[CVE-2023-39659](https://github.com/advisories/GHSA-prgp-w7vf-ch62) (Critical)<br/>[CVE-2023-32786](https://github.com/advisories/GHSA-6h8p-4hx9-w66c) (High)<br/>[CVE-2023-46229](https://github.com/advisories/GHSA-655w-fm8m-m478) (High)<br/>[CVE-2024-0243](https://github.com/advisories/GHSA-h9j7-5xvc-qhg5) (Low)|
 |[mlflow](https://pypi.org/project/mlflow)|N/A|03/23/22|Patricio Cerda Mardini |Apache-2.0|N/A|
 |[mysql-connector-python](https://pypi.org/project/mysql-connector-python)|N/A|05/27/22|Max Stepanov |GPL-2.0-with-font-exception|N/A|
 |[netifaces](https://pypi.org/project/netifaces)|v0.11.0|11/14/23|Hamish Fagg |MIT|N/A|
