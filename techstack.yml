@@ -1,0 +1,1506 @@
+repo_name: tuhinmallick/mindsdb
+report_id: 776cc77b23ec010c869db4c4429c6b4a
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-29T20:07:45+00:00'
+requested_by: hamishfagg
+provider: github
+branch: staging
+detected_tools_count: 107
+tools:
+- name: Mako
+  description: Template library written in Python
+  website_url: https://github.com/zzzeek/mako
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Templating Languages & Extensions
+  image_url: https://img.stackshare.io/service/3583/default_43e3ee00dcc48a40f6fcba33551e4f5a99a10537.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: SQL
+  description: It is a domain-specific language used in programming
+  website_url: https://en.wikipedia.org/wiki/SQL
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/docker/db_images/mariadb/sql-scripts/prepare.sql
+  detection_source: docker/db_images/mariadb/sql-scripts/prepare.sql
+  last_updated_by: Ilia Tsyplenkov
+  last_updated_on: 2022-10-23 15:55:17.000000000 Z
+- name: Smarty
+  description: Template engine for PHP
+  website_url: http://www.smarty.net/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Templating Languages & Extensions
+  image_url: https://img.stackshare.io/service/3693/smarty.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: Protobuf
+  description: Google's data interchange format
+  website_url: https://developers.google.com/protocol-buffers/
+  version: 3.20.3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Serialization Frameworks
+  image_url: https://img.stackshare.io/service/4393/ma2jqJKH_400x400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: Aerospike
+  description: Flash-optimized in-memory open source NoSQL database
+  website_url: http://www.aerospike.com/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: In-Memory Databases
+  image_url: https://img.stackshare.io/service/2123/KhRG5ia4_400x400.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/aerospike_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/aerospike_handler/requirements.txt
+  last_updated_by: Biswadip Paul
+  last_updated_on: 2023-10-24 11:18:52.000000000 Z
+- name: Cloud DB for Mysql
+  description: Easily setup and manage the MySQL database service
+  website_url: https://www.ncloud.com/product/database/cloudDbMysql
+  open_source: false
+  hosted_saas: true
+  category: Data Stores
+  sub_category: SQL Database as a Service
+  image_url: https://img.stackshare.io/service/21275/default_078eb0ae2b56280a937ed073a3ba4332291f9ba8.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/docker/db_images/mysql/Dockerfile
+  detection_source: docker/db_images/mysql/Dockerfile
+  last_updated_by: Ilia Tsyplenkov
+  last_updated_on: 2022-10-02 11:01:08.000000000 Z
+- name: Couchbase
+  description: Document-Oriented NoSQL Database
+  website_url: http://www.couchbase.com/
+  version: 4.0.2
+  open_source: false
+  hosted_saas: true
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1089/KMIbGY8C.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/couchbase_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/couchbase_handler/requirements.txt
+  last_updated_by: zoran
+  last_updated_on: 2023-09-13 12:10:56.000000000 Z
+- name: Fauna
+  description: A flexible, developer-friendly, transactional database delivered as
+    a secure and scalable cloud API with native GraphQL.
+  website_url: https://fauna.com/
+  open_source: false
+  hosted_saas: true
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/11751/default_a137a9130f34fb52959416e21fdee5469f6d6be7.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/faunadb_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/faunadb_handler/requirements.txt
+  last_updated_by: Meet Rajesh Gor
+  last_updated_on: 2023-10-15 16:00:33.000000000 Z
+- name: MSSQL
+  description: It is an enterprise-level database system that is very popular for
+    Windows web servers
+  website_url: https://www.microsoft.com/en-us/sql-server
+  open_source: false
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/2445/ZKsJsucq_400x400.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/mssql_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/mssql_handler/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2022-05-27 12:36:54.000000000 Z
+- name: MongoDB
+  description: The database for giant ideas
+  website_url: http://www.mongodb.com/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1030/leaf-360x360.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/__main__.py
+  detection_source: mindsdb/__main__.py
+  last_updated_by: andrew
+  last_updated_on: 2023-02-01 13:30:06.000000000 Z
+- name: MySQL
+  description: The world's most popular open source database
+  website_url: http://www.mysql.com
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1025/logo-mysql-170x170.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/matrixone_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/matrixone_handler/requirements.txt
+  last_updated_by: parthiv11
+  last_updated_on: 2022-08-21 13:30:48.000000000 Z
+- name: PostgreSQL
+  description: A powerful, open source object-relational database system
+  website_url: http://www.postgresql.org/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/docker/db_images/postgres/Dockerfile
+  detection_source: docker/db_images/postgres/Dockerfile
+  last_updated_by: Ilia Tsyplenkov
+  last_updated_on: 2022-10-13 09:21:16.000000000 Z
+- name: Redis
+  description: Open source (BSD licensed), in-memory data structure store
+  website_url: http://redis.io/
+  version: 5.0.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: In-Memory Databases
+  image_url: https://img.stackshare.io/service/1031/default_cbce472cd134adc6688572f999e9122b9657d4ba.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-09-26 14:02:38.000000000 Z
+- name: SQLAlchemy
+  description: The Python SQL Toolkit and Object Relational Mapper
+  website_url: http://www.sqlalchemy.org/
+  version: 2.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Object Relational Mapper (ORM)
+  image_url: https://img.stackshare.io/service/1839/q5uAkmy7.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/.github/workflows/acceptance_tests.yml
+  detection_source: ".github/workflows/acceptance_tests.yml"
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-07-18 12:16:11.000000000 Z
+- name: Logstash
+  description: Collect, Parse, &amp; Enrich Data
+  website_url: http://logstash.net/
+  open_source: true
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Log Management
+  image_url: https://img.stackshare.io/service/1683/preview.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/elasticsearch_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/elasticsearch_handler/requirements.txt
+  last_updated_by: Minura Punchihewa
+  last_updated_on: 2022-08-20 17:42:48.000000000 Z
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: George3d6
+  last_updated_on: 2021-03-23 15:15:47.000000000 Z
+- name: XGBoost
+  description: Scalable and Flexible Gradient Boosting
+  website_url: https://xgboost.ai/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Machine Learning Tools
+  image_url: https://img.stackshare.io/service/9899/xgboost400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anomaly_detection_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anomaly_detection_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: pre-commit
+  description: A slightly improved pre-commit hook for git
+  website_url: http://jish.github.io/pre-commit/
+  version: 2.16.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Git Tools
+  image_url: https://img.stackshare.io/no-img-open-source.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements-dev.txt
+  detection_source: requirements/requirements-dev.txt
+  last_updated_by: Nehil Jain
+  last_updated_on: 2022-10-11 00:19:49.000000000 Z
+- name: pytest
+  description: A full-featured Python testing tool to help you write better programs
+  website_url: http://pytest.org/latest/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/4586/Lu99Qe0Z_400x400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements-test.txt
+  detection_source: requirements/requirements-test.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: MonkeyLearn
+  description: Text Analysis with Machine Learning
+  website_url: https://monkeylearn.com/
+  open_source: false
+  hosted_saas: true
+  category: Application Utilities
+  sub_category: NLP / Sentiment Analysis
+  image_url: https://img.stackshare.io/service/1525/logo-512x512px.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/monkeylearn_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/monkeylearn_handler/requirements.txt
+  last_updated_by: Pranav
+  last_updated_on: 2023-05-29 17:57:10.000000000 Z
+- name: Pillow
+  description: Python Imaging Library
+  website_url: https://python-pillow.github.io/
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: Image Processing and Management
+  image_url: https://img.stackshare.io/service/2375/default_1f67b0ca7416a9f52beb655f90b5602d5ef74b75.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/stabilityai_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/stabilityai_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: Replicate
+  description: Run machine learning models with a few lines of code
+  website_url: https://replicate.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Machine Learning as a Service
+  image_url: https://img.stackshare.io/service/21709/default_e8df7b9f7533c3ea041cf8ded59b2c12e7466b67.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/replicate_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/replicate_handler/requirements.txt
+  last_updated_by: parthiv11
+  last_updated_on: 2023-07-07 17:44:30.000000000 Z
+- name: Rockset
+  description: Real-time analytics database built for the cloud
+  website_url: https://rockset.com/
+  open_source: false
+  hosted_saas: false
+  category: Analytics
+  sub_category: Realtime Analytics
+  image_url: https://img.stackshare.io/service/20923/default_f87a5c49c8aef3a45a1eb0696234a4b01f1b90e5.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/rockset_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/rockset_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: cURL
+  description: Command Line Tool and Library for Transferring Data With URLs
+  website_url: http://curl.haxx.se/
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: File Transfer
+  image_url: https://img.stackshare.io/service/6552/curl-logo.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/docker-compose.yml
+  detection_source: docker-compose.yml
+  last_updated_by: hamishfagg
+  last_updated_on: 2023-07-10 23:58:06.000000000 Z
+- name: AutoGluon
+  description: AutoML Toolkit for Deep Learning
+  website_url: https://autogluon.mxnet.io/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Machine Learning Tools
+  image_url: https://img.stackshare.io/service/11691/autogluo.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/autogluon_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/autogluon_handler/requirements.txt
+  last_updated_by: Somesh
+  last_updated_on: 2023-10-23 10:31:33.000000000 Z
+- name: Claude
+  description: A next-generation AI assistant for your tasks, no matter the scale
+  website_url: https://www.anthropic.com/product
+  version: 0.3.4
+  open_source: false
+  hosted_saas: false
+  category: Communications
+  sub_category: Large Language Models
+  image_url: https://img.stackshare.io/service/101883/default_fddf1fbe1d52baf4dac573b2b7fc24b78cc729b1.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anthropic_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anthropic_handler/requirements.txt
+  last_updated_by: bala_ceg
+  last_updated_on: 2023-07-17 11:26:57.000000000 Z
+- name: Cohere.com
+  description: Add cutting-edge language processing to any system
+  website_url: https://cohere.com/
+  version: 4.5.1
+  open_source: false
+  hosted_saas: false
+  category: Communications
+  sub_category: Large Language Models
+  image_url: https://img.stackshare.io/service/101884/default_cf6d4a823cb5b37940800efc1e952b6a6c74e32a.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/cohere_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/cohere_handler/requirements.txt
+  last_updated_by: bala_ceg
+  last_updated_on: 2023-05-23 14:38:49.000000000 Z
+- name: Elasticsearch
+  description: Open Source, Distributed, RESTful Search Engine
+  website_url: https://www.elastic.co/products/elasticsearch
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Search as a Service
+  image_url: https://img.stackshare.io/service/841/Image_2019-05-20_at_4.58.04_PM.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/elasticsearch_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/elasticsearch_handler/requirements.txt
+  last_updated_by: Minura Punchihewa
+  last_updated_on: 2022-08-20 17:42:48.000000000 Z
+- name: NumPy
+  description: Fundamental package for scientific computing with Python
+  website_url: http://www.numpy.org/
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Data Science Tools
+  image_url: https://img.stackshare.io/service/2179/default_332f874a2edb2686f578aa6389313efcea1eec41.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: George3d6
+  last_updated_on: 2021-03-23 15:15:47.000000000 Z
+- name: OpenAI
+  description: Creating safe AGI that benefits all
+  website_url: https://openai.com/
+  version: 0.28.1
+  open_source: false
+  hosted_saas: false
+  category: Communications
+  sub_category: Large Language Models
+  image_url: https://img.stackshare.io/service/48786/default_8b1119bcbb159cebebc2f6cfc9cd2e359b169d22.jpg
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anyscale_endpoints_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anyscale_endpoints_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: Pinecone
+  description: Build high-performance vector search applications
+  website_url: https://www.pinecone.io/
+  open_source: false
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Search as a Service
+  image_url: https://img.stackshare.io/service/48784/default_376332a8eee1cdbb0546ca1aaed0b8a7f4d673d7.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/pinecone_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/pinecone_handler/requirements.txt
+  last_updated_by: Aditya Azad
+  last_updated_on: 2023-10-12 15:33:38.000000000 Z
+- name: SciPy
+  description: Scientific Computing Tools for Python
+  website_url: http://www.scipy.org
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Data Science Tools
+  image_url: https://img.stackshare.io/service/3303/scipyshiny_small.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/merlion_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/merlion_handler/requirements.txt
+  last_updated_by: franky
+  last_updated_on: 2022-11-04 15:14:54.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb
+  detection_source: Repo Metadata
+- name: TensorFlow
+  description: Open Source Software Library for Machine Intelligence
+  website_url: https://www.tensorflow.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Machine Learning Tools
+  image_url: https://img.stackshare.io/service/4717/FtFnqC38_400x400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/autokeras_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/autokeras_handler/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-08-22 13:59:24.000000000 Z
+- name: Torch
+  description: An open-source machine learning library and a script language based
+    on the Lua programming language
+  website_url: http://torch.ch/
+  open_source: true
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Machine Learning Tools
+  image_url: https://img.stackshare.io/service/4475/hpYQzO_U_400x400.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/huggingface_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/huggingface_handler/requirements.txt
+  last_updated_by: andrew
+  last_updated_on: 2022-10-06 08:59:09.000000000 Z
+- name: polars
+  description: Lightning-fast DataFrame library for Rust and Python
+  website_url: https://www.pola.rs/
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/48711/default_d1b1da98d0dfa7b4dbc0619590b6d08f0b33c35c.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/popularity_recommender_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/popularity_recommender_handler/requirements.txt
+  last_updated_by: dusvyat
+  last_updated_on: 2023-05-08 06:05:17.000000000 Z
+- name: PyGithub
+  description: Use the full Github API v3
+  package_url: https://pypi.org/project/PyGithub
+  license: LGPL-3.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19957/default_f0290ff2792e2af7d13f5c82ed82206842ec288d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/github_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/github_handler/requirements.txt
+  last_updated_by: Artem Veremey
+  last_updated_on: 2023-04-05 17:41:35.000000000 Z
+- name: PyHive
+  description: Python interface to Hive
+  package_url: https://pypi.org/project/PyHive
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/hive_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/hive_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: PyMySQL
+  description: Pure Python MySQL Driver
+  package_url: https://pypi.org/project/PyMySQL
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19880/default_3863c7bb51d307217c188e059f67ca417c51efe3.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/matrixone_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/matrixone_handler/requirements.txt
+  last_updated_by: parthiv11
+  last_updated_on: 2022-08-21 13:30:48.000000000 Z
+- name: ShopifyAPI
+  description: Shopify API for Python
+  package_url: https://pypi.org/project/ShopifyAPI
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/shopify_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/shopify_handler/requirements.txt
+  last_updated_by: Aditya Azad
+  last_updated_on: 2023-10-04 14:43:50.000000000 Z
+- name: alembic
+  description: A database migration tool for SQLAlchemy
+  package_url: https://pypi.org/project/alembic
+  version: 1.3.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19961/default_61e35171bd9c0e5c5b88b2e4221ca242576ad8c0.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: andrew
+  last_updated_on: 2021-11-30 11:31:13.000000000 Z
+- name: anthropic
+  description: The official Python library for the anthropic API
+  package_url: https://pypi.org/project/anthropic
+  version: 0.3.4
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anthropic_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anthropic_handler/requirements.txt
+  last_updated_by: bala_ceg
+  last_updated_on: 2023-07-17 11:26:57.000000000 Z
+- name: appdirs
+  description: A small Python module for determining appropriate platform-specific
+    dirs, e.g
+  package_url: https://pypi.org/project/appdirs
+  version: 1.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19878/default_2270bfab784e3d2c2d999d26b11ee478a9dad238.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: George3d6
+  last_updated_on: 2021-05-21 23:43:53.000000000 Z
+- name: atlassian-python-api
+  description: Python Atlassian REST API Wrapper
+  package_url: https://pypi.org/project/atlassian-python-api
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/confluence_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/confluence_handler/requirements.txt
+  last_updated_by: bala_ceg
+  last_updated_on: 2023-04-19 03:09:32.000000000 Z
+- name: boto3
+  description: The AWS SDK for Python
+  package_url: https://pypi.org/project/boto3
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19840/default_1c41e593803157c668b26f27387160254f0f5371.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: botocore
+  description: Low-level, data-driven core of boto 3
+  package_url: https://pypi.org/project/botocore
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19884/default_b8be3f20d4af87021ae3618d5c50b72c985ea31f.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: bs4
+  description: Dummy package for Beautiful Soup
+  package_url: https://pypi.org/project/bs4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19906/default_2aeed05332f0410b54817405c7e8e202a7e763cf.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/web_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/web_handler/requirements.txt
+  last_updated_by: Jorge Torres
+  last_updated_on: 2023-08-10 02:17:50.000000000 Z
+- name: cachetools
+  description: Extensible memoizing collections and decorators
+  package_url: https://pypi.org/project/cachetools
+  version: 5.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19950/default_611a1328f69b729fac0a7b8bf87ff04e8ce35e17.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/docker/handler_discovery/requirements.txt
+  detection_source: docker/handler_discovery/requirements.txt
+  last_updated_by: Ilia Tsyplenkov
+  last_updated_on: 2023-02-11 11:49:18.000000000 Z
+- name: certifi
+  description: Python package for providing Mozilla's CA Bundle
+  package_url: https://pypi.org/project/certifi
+  license: MPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19849/default_75c38a39b9f0062814489e2ec2cbfca0ca15d9ba.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/mongodb_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/mongodb_handler/requirements.txt
+  last_updated_by: andrew
+  last_updated_on: 2022-06-17 10:06:21.000000000 Z
+- name: charset-normalizer
+  description: The Real First Universal Charset Detector
+  package_url: https://pypi.org/project/charset-normalizer
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/file_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/file_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: checksumdir
+  description: Compute a single hash of the file contents of a directory
+  package_url: https://pypi.org/project/checksumdir
+  version: 1.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: George3d6
+  last_updated_on: 2021-08-19 14:40:08.000000000 Z
+- name: chromadb
+  description: Chroma
+  package_url: https://pypi.org/project/chromadb
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/chromadb_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/chromadb_handler/requirements.txt
+  last_updated_by: Yuhui Shi
+  last_updated_on: 2023-08-30 18:35:46.000000000 Z
+- name: ckanapi
+  description: A command line interface and Python module for accessing the CKAN Action
+    API
+  package_url: https://pypi.org/project/ckanapi
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/ckan_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/ckan_handler/requirements.txt
+  last_updated_by: Konstantin Sivakov
+  last_updated_on: 2022-07-07 19:41:44.000000000 Z
+- name: cohere
+  description: Python SDK for the Cohere API
+  package_url: https://pypi.org/project/cohere
+  version: 4.5.1
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/cohere_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/cohere_handler/requirements.txt
+  last_updated_by: bala_ceg
+  last_updated_on: 2023-05-23 14:38:49.000000000 Z
+- name: cryptography
+  description: Cryptography is a package which provides cryptographic recipes and
+    primitives to Python developers
+  package_url: https://pypi.org/project/cryptography
+  version: '35.0'
+  license: BSD-3-Clause,Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19850/default_db2ab2702f70e20c272f6ce65251108fb2b8f1ea.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2022-09-09 12:41:02.000000000 Z
+  vulnerabilities:
+  - name: Vulnerable OpenSSL included in cryptography wheels
+    cve_id: CVE-2023-0286
+    cve_url: https://github.com/advisories/GHSA-x4qr-2fvf-3mr5
+    detected_date: Feb 9
+    severity: high
+    first_patched: 39.0.1
+  - name: Python Cryptography package vulnerable to Bleichenbacher timing oracle attack
+    cve_id: CVE-2023-50782
+    cve_url: https://github.com/advisories/GHSA-3ww4-gg4f-jr7f
+    detected_date: Feb 6
+    severity: high
+    first_patched: 42.0.0
+  - name: cryptography vulnerable to NULL-dereference when loading PKCS7 certificates
+    cve_id: CVE-2023-49083
+    cve_url: https://github.com/advisories/GHSA-jfhm-5ghh-2f97
+    detected_date: Nov 29
+    severity: moderate
+    first_patched: 41.0.6
+  - name: Cipher.update_into can corrupt memory if passed an immutable python object
+      as the outbuf
+    cve_id: CVE-2023-23931
+    cve_url: https://github.com/advisories/GHSA-w7pp-m8wf-vj6r
+    detected_date: Feb 8
+    severity: moderate
+    first_patched: 39.0.1
+  - name: Null pointer dereference in PKCS12 parsing
+    cve_id: CVE-2024-0727
+    cve_url: https://github.com/advisories/GHSA-9v9h-cgj8-h64p
+    detected_date: Feb 17
+    severity: moderate
+    first_patched: 42.0.2
+  - name: Vulnerable OpenSSL included in cryptography wheels
+    cve_id: 
+    cve_url: https://github.com/advisories/GHSA-v8gr-m533-ghj9
+    detected_date: Sep 22
+    severity: low
+    first_patched: 41.0.4
+  - name: Vulnerable OpenSSL included in cryptography wheels
+    cve_id: 
+    cve_url: https://github.com/advisories/GHSA-5cpq-8wj7-hf2v
+    detected_date: Jun 3
+    severity: low
+    first_patched: 41.0.0
+  - name: pyca/cryptography's wheels include vulnerable OpenSSL
+    cve_id: 
+    cve_url: https://github.com/advisories/GHSA-jm77-qphf-c4w8
+    detected_date: Aug 2
+    severity: low
+    first_patched: 41.0.3
+- name: dask
+  description: Parallel PyData with Task Scheduling
+  package_url: https://pypi.org/project/dask
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20131/default_3146a05cf4dd77d8b50cff25709373c081ac5053.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/ludwig_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/ludwig_handler/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2022-09-23 09:15:37.000000000 Z
+- name: dill
+  description: Serialize all of python
+  package_url: https://pypi.org/project/dill
+  version: 0.3.6
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19972/default_735d20726524f3a2b12f956af25bde52f942f85a.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-06-21 11:25:13.000000000 Z
+- name: google
+  description: Python bindings to the Google search engine
+  package_url: https://pypi.org/project/google
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20708/default_e885869a0d29385c2822600e997cabd6d7375b02.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/google_fit_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/google_fit_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: google-api-python-client
+  description: Google API Client Library for Python
+  package_url: https://pypi.org/project/google-api-python-client
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19897/default_4343f8bba4f6051641ffca8b4fbe9b099402c84d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/gmail_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/gmail_handler/requirements.txt
+  last_updated_by: Rajeev R Sharma
+  last_updated_on: 2023-05-12 06:15:20.000000000 Z
+- name: google-auth-oauthlib
+  description: Google Authentication Library
+  package_url: https://pypi.org/project/google-auth-oauthlib
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20240/default_8a23a3884b3073b5e1695e2320e46529e60882b3.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/gmail_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/gmail_handler/requirements.txt
+  last_updated_by: Rajeev R Sharma
+  last_updated_on: 2023-05-12 06:15:20.000000000 Z
+- name: google-cloud-bigquery
+  description: Google BigQuery API client library
+  package_url: https://pypi.org/project/google-cloud-bigquery
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20122/default_480d32900476f532eb2077c5e672b5cb60c86e48.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/bigquery_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/bigquery_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: grpcio-tools
+  description: Protobuf code generator for gRPC
+  package_url: https://pypi.org/project/grpcio-tools
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20003/default_87268cab0d3a3b3acf3aa0576d4b114b8e4c2521.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: gunicorn
+  description: WSGI HTTP Server for UNIX
+  package_url: https://pypi.org/project/gunicorn
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19931/default_74a0c20721d3a0a1484d69586401591fe8993db2.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: html2text
+  description: Turn HTML into equivalent Markdown-structured text
+  package_url: https://pypi.org/project/html2text
+  license: GPL-3.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19982/default_ccb381b493daf0d966e015380e1894fdbc637ad3.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/rag_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/rag_handler/requirements.txt
+  last_updated_by: Daniel Usvyat
+  last_updated_on: 2023-10-04 15:33:57.000000000 Z
+- name: huggingface-hub
+  description: Client library to download and publish models
+  package_url: https://pypi.org/project/huggingface-hub
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/huggingface_api_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/huggingface_api_handler/requirements.txt
+  last_updated_by: andrew
+  last_updated_on: 2023-07-18 13:16:41.000000000 Z
+- name: joblib
+  description: 'Lightweight pipelining: using Python functions as pipeline jobs'
+  package_url: https://pypi.org/project/joblib
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20033/default_5a21cf44b42c3ef13f57dcd42ae753240ea7e808.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anomaly_detection_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anomaly_detection_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: langchain
+  description: Building applications with LLMs through composability
+  package_url: https://pypi.org/project/langchain
+  version: 0.0.303
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/file_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/file_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+  vulnerabilities:
+  - name: langchain vulnerable to arbitrary code execution
+    cve_id: CVE-2023-36281
+    cve_url: https://github.com/advisories/GHSA-7gfq-f96f-g85j
+    detected_date: Dec 8
+    severity: critical
+    first_patched: 0.0.312
+  - name: Langchain vulnerable to arbitrary code execution via the evaluate function
+      in the numexpr library
+    cve_id: CVE-2023-39631
+    cve_url: https://github.com/advisories/GHSA-f73w-4m7g-ch9x
+    detected_date: Dec 8
+    severity: critical
+    first_patched: 0.0.308
+  - name: LangChain vulnerable to arbitrary code execution
+    cve_id: CVE-2023-39659
+    cve_url: https://github.com/advisories/GHSA-prgp-w7vf-ch62
+    detected_date: Dec 8
+    severity: critical
+    first_patched: 0.0.325
+  - name: Langchain Server-Side Request Forgery vulnerability
+    cve_id: CVE-2023-32786
+    cve_url: https://github.com/advisories/GHSA-6h8p-4hx9-w66c
+    detected_date: Dec 8
+    severity: high
+    first_patched: 0.0.329
+  - name: LangChain Server Side Request Forgery vulnerability
+    cve_id: CVE-2023-46229
+    cve_url: https://github.com/advisories/GHSA-655w-fm8m-m478
+    detected_date: Dec 8
+    severity: high
+    first_patched: 0.0.317
+  - name: langchain Server-Side Request Forgery vulnerability
+    cve_id: CVE-2024-0243
+    cve_url: https://github.com/advisories/GHSA-h9j7-5xvc-qhg5
+    detected_date: Feb 27
+    severity: low
+    first_patched: 0.1.0
+- name: mlflow
+  description: 'MLflow: An ML Workflow Tool'
+  package_url: https://pypi.org/project/mlflow
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/mlflow_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/mlflow_handler/requirements.txt
+  last_updated_by: Patricio Cerda Mardini
+  last_updated_on: 2022-03-23 22:35:43.000000000 Z
+- name: mysql-connector-python
+  description: MySQL driver written in Python
+  package_url: https://pypi.org/project/mysql-connector-python
+  license: GPL-2.0-with-font-exception
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20794/default_9ca241da01759150a631f1a4419765b91249245f.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/mysql_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/mysql_handler/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2022-05-27 12:36:54.000000000 Z
+- name: netifaces
+  description: Portable network interface information
+  package_url: https://pypi.org/project/netifaces
+  version: 0.11.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20229/default_ac3896467e151a154f15419dbab3ee7694c7ddf3.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements-test.txt
+  detection_source: requirements/requirements-test.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: nltk
+  description: Natural Language Toolkit
+  package_url: https://pypi.org/project/nltk
+  version: 3.8.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20023/default_b0d1a54f127d7017fce41c15f5e85568fb7019ed.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/writer_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/huggingface_handler/requirements.txt
+  last_updated_by: Patricio Cerda Mardini
+  last_updated_on: 2023-07-28 23:18:00.000000000 Z
+- name: openai
+  description: The official Python library for the openai API
+  package_url: https://pypi.org/project/openai
+  version: 0.28.1
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/anyscale_endpoints_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/anyscale_endpoints_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: openpyxl
+  description: A Python library to read/write Excel 2010 xlsx/xlsm files
+  package_url: https://pypi.org/project/openpyxl
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19895/default_4343f8bba4f6051641ffca8b4fbe9b099402c84d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/file_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/file_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: packaging
+  description: Core utilities for Python packages
+  package_url: https://pypi.org/project/packaging
+  license: BSD-3-Clause,Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19894/default_f716e4bc541a9eb6e3f5b7a20d7c35355075b0b4.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: pandas
+  description: Powerful data structures for data analysis
+  package_url: https://pypi.org/project/pandas
+  version: 2.0.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19837/default_85689b353a3a9409328e253ea28d859d29151e0c.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-08-04 12:08:43.000000000 Z
+- name: pgvector
+  description: Pgvector support for Python
+  package_url: https://pypi.org/project/pgvector
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/pgvector_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/pgvector_handler/requirements.txt
+  last_updated_by: dusvyat
+  last_updated_on: 2023-09-06 01:03:03.000000000 Z
+- name: praw
+  description: PRAW
+  package_url: https://pypi.org/project/praw
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20605/default_3aa7d93e5dadf8a0123c65abeccd198669792007.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/reddit_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/reddit_handler/requirements.txt
+  last_updated_by: Smyja
+  last_updated_on: 2023-04-17 22:45:47.000000000 Z
+- name: psutil
+  description: Cross-platform lib for process and system monitoring in Python
+  package_url: https://pypi.org/project/psutil
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19851/default_ac77a75c05474acf9389d56b1f5cc8241af4c384.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: psycopg2-binary
+  description: Psycopg2 - Python-PostgreSQL Database Adapter
+  package_url: https://pypi.org/project/psycopg2-binary
+  license: BSD-3-Clause-Attribution
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: pyarrow
+  description: Python library for Apache Arrow
+  package_url: https://pypi.org/project/pyarrow
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20366/default_20f72d65682b6cad9939bcf162d0ef14fced900c.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/lancedb_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/lancedb_handler/requirements.txt
+  last_updated_by: Biswadip Paul
+  last_updated_on: 2023-11-02 11:07:23.000000000 Z
+- name: pydantic
+  description: Data validation and settings management using python 3.6 type hinting
+  package_url: https://pypi.org/project/pydantic
+  version: 1.10.7
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20022/default_b0d1a54f127d7017fce41c15f5e85568fb7019ed.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/lightfm_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/chromadb_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: pydruid
+  description: A Python connector for Druid
+  package_url: https://pypi.org/project/pydruid
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/druid_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/druid_handler/requirements.txt
+  last_updated_by: Minura Punchihewa
+  last_updated_on: 2022-08-25 17:33:04.000000000 Z
+- name: pymongo
+  description: Python driver for MongoDB &lt;http://www.mongodb.org&gt;
+  package_url: https://pypi.org/project/pymongo
+  version: 4.1.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19865/default_7975a21f3bf03129dc3bc4168cf7cb7ee2cc14cc.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2022-07-25 10:31:01.000000000 Z
+- name: pyodbc
+  description: DB API Module for ODBC
+  package_url: https://pypi.org/project/pyodbc
+  version: 4.0.34
+  license: MIT-0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20110/default_534fc53c55ef7fbc50263daa8ea6618be3c2b37d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/hsqldb_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/access_handler/requirements.txt
+  last_updated_by: Minura Punchihewa
+  last_updated_on: 2022-08-01 16:49:34.000000000 Z
+- name: pyparsing
+  description: Python parsing module
+  package_url: https://pypi.org/project/pyparsing
+  version: 2.3.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19881/default_2270bfab784e3d2c2d999d26b11ee478a9dad238.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: python-dateutil
+  description: Extensions to the standard Python datetime module
+  package_url: https://pypi.org/project/python-dateutil
+  license: NRL
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19833/default_58dbe7b4d7ec447b62773209af0f9a31bbabf5bd.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: python-gitlab
+  description: Interact with GitLab API
+  package_url: https://pypi.org/project/python-gitlab
+  license: LGPL-3.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20108/default_534fc53c55ef7fbc50263daa8ea6618be3c2b37d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/gitlab_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/gitlab_handler/requirements.txt
+  last_updated_by: Senali
+  last_updated_on: 2023-04-19 16:46:27.000000000 Z
+- name: python-magic
+  description: File type identification using libmagic
+  package_url: https://pypi.org/project/python-magic
+  version: 0.4.27
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20245/default_79c7a01488eebdf30ca22b7316d9f77bbe7fad8b.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/file_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/file_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: pytz
+  description: World timezone definitions, modern and historical
+  package_url: https://pypi.org/project/pytz
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19841/default_bb711fa267b2329ed689711a5adb7d9e74610b20.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: requests
+  description: Python HTTP for Humans
+  package_url: https://pypi.org/project/requests
+  version: 2.28.1
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19826/default_d7c684bf2673f008a9f02ac93901229297a22d7e.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+  vulnerabilities:
+  - name: Unintended leak of Proxy-Authorization header in requests
+    cve_id: CVE-2023-32681
+    cve_url: https://github.com/advisories/GHSA-j8r2-6x86-q33q
+    detected_date: May 23
+    severity: moderate
+    first_patched: 2.31.0
+- name: responses
+  description: A utility library for mocking out the `requests` Python library
+  package_url: https://pypi.org/project/responses
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20167/default_7c58f8c011d1676d1d010f43fec5e502e542d0a5.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements-test.txt
+  detection_source: requirements/requirements-test.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: scikit-learn
+  description: A set of python modules for machine learning and data mining
+  package_url: https://pypi.org/project/scikit-learn
+  version: 1.3.2
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19898/default_4343f8bba4f6051641ffca8b4fbe9b099402c84d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: sentry-sdk
+  description: Python client for Sentry
+  package_url: https://pypi.org/project/sentry-sdk
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19998/default_b31141ac99e60278dc869f5a0490a63444b590d7.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: snowflake-connector-python
+  description: Snowflake Connector for Python
+  package_url: https://pypi.org/project/snowflake-connector-python
+  version: 2.7.12
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20735/default_a1230263c1022e7a5f1ab77d48a7703cf2c2878e.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/snowflake_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/snowflake_handler/requirements.txt
+  last_updated_by: andrew
+  last_updated_on: 2023-08-10 13:39:11.000000000 Z
+  vulnerabilities:
+  - name: Snowflake Python Connector vulnerable to Command Injection
+    cve_id: CVE-2023-34233
+    cve_url: https://github.com/advisories/GHSA-5w5m-pfw9-c8fp
+    detected_date: Jun 10
+    severity: high
+    first_patched: 3.0.2
+  - name: snowflake-connector-python is vulnerable to Regular Expression Denial of
+      Service (ReDoS)
+    cve_id: CVE-2022-42965
+    cve_url: https://github.com/advisories/GHSA-4r6j-fwcx-94cf
+    detected_date: Nov 11
+    severity: moderate
+    first_patched: 2.8.2
+- name: spacy
+  description: Industrial-strength Natural Language Processing
+  package_url: https://pypi.org/project/spacy
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20263/default_1842575018db691e6f93d8a9a1aa65cdc2a55c20.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/spacy_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/spacy_handler/requirements.txt
+  last_updated_by: Bill Nguyen Ton Hoang
+  last_updated_on: 2023-11-02 00:19:49.000000000 Z
+- name: stripe
+  description: Python bindings for the Stripe API
+  package_url: https://pypi.org/project/stripe
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20448/default_3594ac2294a6aa0f41792d27e3f019e66d1684f7.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/stripe_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/stripe_handler/requirements.txt
+  last_updated_by: Minura Punchihewa
+  last_updated_on: 2023-05-17 18:40:12.000000000 Z
+- name: tweepy
+  description: Twitter library for python
+  package_url: https://pypi.org/project/tweepy
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20397/default_49831882be649a3ae5c46617c462b503ba8fccbc.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/twitter_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/twitter_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: twilio
+  description: Twilio API client and TwiML generator
+  package_url: https://pypi.org/project/twilio
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20326/default_1342a7e78c3c34f58715077849cd487ffddd263d.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/twilio_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/twilio_handler/requirements.txt
+  last_updated_by: Jorge Torres
+  last_updated_on: 2023-10-26 02:35:08.000000000 Z
+- name: tzlocal
+  description: Tzinfo object for the local timezone
+  package_url: https://pypi.org/project/tzlocal
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19922/default_c8be5290cb8d8a8b578535a2c6475d1057ff4ea4.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/google_fit_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/google_fit_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: virtualenv
+  description: Virtual Python Environment builder
+  package_url: https://pypi.org/project/virtualenv
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19970/default_1c8812e05cf754e8f654b8d86b3f025827f5bfb6.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/byom_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/byom_handler/requirements.txt
+  last_updated_by: Hamish Fagg
+  last_updated_on: 2023-11-14 01:03:28.000000000 Z
+- name: waitress
+  description: Waitress WSGI server
+  package_url: https://pypi.org/project/waitress
+  version: 1.4.4
+  license: ZPL-2.1
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20080/default_1b6ee2407cdedc6ad8878ee707164428880e399a.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: George3d6
+  last_updated_on: 2021-05-21 23:43:53.000000000 Z
+  vulnerabilities:
+  - name: HTTP Request Smuggling in waitress
+    cve_id: CVE-2022-24761
+    cve_url: https://github.com/advisories/GHSA-4f7p-27jc-3c36
+    detected_date: Mar 22
+    severity: high
+    first_patched: 2.1.1
+- name: walrus
+  description: Walrus
+  package_url: https://pypi.org/project/walrus
+  version: 0.9.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/requirements/requirements.txt
+  detection_source: requirements/requirements.txt
+  last_updated_by: Max Stepanov
+  last_updated_on: 2023-09-27 11:51:55.000000000 Z
+- name: wikipedia
+  description: Wikipedia API for Python
+  package_url: https://pypi.org/project/wikipedia
+  version: 1.4.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/tuhinmallick/mindsdb/blob/staging/mindsdb/integrations/handlers/langchain_handler/requirements.txt
+  detection_source: mindsdb/integrations/handlers/langchain_handler/requirements.txt
+  last_updated_by: Patricio Cerda Mardini
+  last_updated_on: 2023-03-17 21:12:57.000000000 Z
