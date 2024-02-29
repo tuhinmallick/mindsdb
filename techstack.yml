@@ -2,7 +2,7 @@ repo_name: tuhinmallick/mindsdb
 report_id: 776cc77b23ec010c869db4c4429c6b4a
 version: 0.1
 repo_type: Public
-timestamp: '2024-02-19T00:20:08+00:00'
+timestamp: '2024-02-29T20:07:45+00:00'
 requested_by: hamishfagg
 provider: github
 branch: staging
@@ -752,24 +752,18 @@ tools:
   last_updated_by: Max Stepanov
   last_updated_on: 2022-09-09 12:41:02.000000000 Z
   vulnerabilities:
-  - name: Python Cryptography package vulnerable to Bleichenbacher timing oracle attack
-    cve_id: CVE-2023-50782
-    cve_url: https://github.com/advisories/GHSA-3ww4-gg4f-jr7f
-    detected_date: Feb 6
-    severity: high
-    first_patched: 42.0.0
   - name: Vulnerable OpenSSL included in cryptography wheels
     cve_id: CVE-2023-0286
     cve_url: https://github.com/advisories/GHSA-x4qr-2fvf-3mr5
     detected_date: Feb 9
     severity: high
     first_patched: 39.0.1
-  - name: Null pointer dereference in PKCS12 parsing
-    cve_id: CVE-2024-0727
-    cve_url: https://github.com/advisories/GHSA-9v9h-cgj8-h64p
-    detected_date: Feb 17
-    severity: moderate
-    first_patched: 42.0.2
+  - name: Python Cryptography package vulnerable to Bleichenbacher timing oracle attack
+    cve_id: CVE-2023-50782
+    cve_url: https://github.com/advisories/GHSA-3ww4-gg4f-jr7f
+    detected_date: Feb 6
+    severity: high
+    first_patched: 42.0.0
   - name: cryptography vulnerable to NULL-dereference when loading PKCS7 certificates
     cve_id: CVE-2023-49083
     cve_url: https://github.com/advisories/GHSA-jfhm-5ghh-2f97
@@ -783,6 +777,12 @@ tools:
     detected_date: Feb 8
     severity: moderate
     first_patched: 39.0.1
+  - name: Null pointer dereference in PKCS12 parsing
+    cve_id: CVE-2024-0727
+    cve_url: https://github.com/advisories/GHSA-9v9h-cgj8-h64p
+    detected_date: Feb 17
+    severity: moderate
+    first_patched: 42.0.2
   - name: Vulnerable OpenSSL included in cryptography wheels
     cve_id: 
     cve_url: https://github.com/advisories/GHSA-v8gr-m533-ghj9
@@ -958,12 +958,6 @@ tools:
   last_updated_by: Hamish Fagg
   last_updated_on: 2023-11-14 01:03:28.000000000 Z
   vulnerabilities:
-  - name: LangChain vulnerable to arbitrary code execution
-    cve_id: CVE-2023-39659
-    cve_url: https://github.com/advisories/GHSA-prgp-w7vf-ch62
-    detected_date: Dec 8
-    severity: critical
-    first_patched: 0.0.325
   - name: langchain vulnerable to arbitrary code execution
     cve_id: CVE-2023-36281
     cve_url: https://github.com/advisories/GHSA-7gfq-f96f-g85j
@@ -977,18 +971,30 @@ tools:
     detected_date: Dec 8
     severity: critical
     first_patched: 0.0.308
-  - name: LangChain Server Side Request Forgery vulnerability
-    cve_id: CVE-2023-46229
-    cve_url: https://github.com/advisories/GHSA-655w-fm8m-m478
+  - name: LangChain vulnerable to arbitrary code execution
+    cve_id: CVE-2023-39659
+    cve_url: https://github.com/advisories/GHSA-prgp-w7vf-ch62
     detected_date: Dec 8
-    severity: high
-    first_patched: 0.0.317
+    severity: critical
+    first_patched: 0.0.325
   - name: Langchain Server-Side Request Forgery vulnerability
     cve_id: CVE-2023-32786
     cve_url: https://github.com/advisories/GHSA-6h8p-4hx9-w66c
     detected_date: Dec 8
     severity: high
     first_patched: 0.0.329
+  - name: LangChain Server Side Request Forgery vulnerability
+    cve_id: CVE-2023-46229
+    cve_url: https://github.com/advisories/GHSA-655w-fm8m-m478
+    detected_date: Dec 8
+    severity: high
+    first_patched: 0.0.317
+  - name: langchain Server-Side Request Forgery vulnerability
+    cve_id: CVE-2024-0243
+    cve_url: https://github.com/advisories/GHSA-h9j7-5xvc-qhg5
+    detected_date: Feb 27
+    severity: low
+    first_patched: 0.1.0
 - name: mlflow
   description: 'MLflow: An ML Workflow Tool'
   package_url: https://pypi.org/project/mlflow
